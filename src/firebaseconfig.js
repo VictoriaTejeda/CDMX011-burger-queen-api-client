@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyDMmW6KVO55jpPGhKjMbGbBfHMmENJ0330",
     authDomain: "burguer-queen-ee7df.firebaseapp.com",
@@ -29,4 +29,16 @@ export const singIn =(email,password)=>{
       console.log (errorCode,errorMessage );
       console.log ('no entre');
     });
+}
+
+export const logOut =()=>{
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid)
+      console.log("soy el usuario")
+    } else {
+      console.log("no hay usuario")
+    }
+  });
 }
