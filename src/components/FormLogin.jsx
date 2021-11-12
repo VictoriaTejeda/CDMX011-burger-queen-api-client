@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 // eslint-disable-next-line react/prop-types
 export const FormLogin = ({ handleLogin }) => {
     const [email, setEmail] = useState('');
@@ -21,7 +22,7 @@ export const FormLogin = ({ handleLogin }) => {
             <h3>Password:</h3>
             <input type="password" onChange={handlePassword} required />
             <br />
-            <button onClick={(e) => { e.preventDefault(); handleLogin(email, pass) }} >Entrar</button>
+            <button onClick={(e) => { e.preventDefault(); handleLogin(email, pass)}} >Entrar</button>
 
         </div>
     )
