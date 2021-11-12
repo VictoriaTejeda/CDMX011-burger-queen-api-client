@@ -1,9 +1,13 @@
 import React from 'react'
-
+import { FormLogin } from './FormLogin'
+import {singIn} from './firebaseconfig'
 export const Login = () => {
+    const handleLogin=(email,password)=>{
+        singIn(email,password)
+    }
     return (
         <div>
-            <h1>soy Login chavas</h1>
+            <FormLogin handleLogin={handleLogin} />
         </div>
     )
 }
