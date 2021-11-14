@@ -18,9 +18,9 @@ export const FormLogin = ({ handleLogin }) => {
             <h3>Nombre:</h3>
             <input type="text" required />
             <h3>Correo Electrónico:</h3>
-            <input type="text" onChange={handleEmail} required />
+            <input type="text" placeholder="ejemplo@correo.com" onChange={handleEmail} required />
             <h3>Password:</h3>
-            <input type="password" onChange={handlePassword} required />
+            <input type="password" placeholder="******" onChange={handlePassword} required />
             <br />
             <button onClick={(e) => { e.preventDefault(); handleLogin(email, pass)}} >Entrar</button>
 
