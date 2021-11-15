@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap");
+
+$font-family: "Nunito Sans", sans-serif;
+$font-color1: #fafcac;
+$font-color2: #ffa427;
+$font-color3: #c93c00;
+$base-color: #e7aa2b;
+$secund-color: #ffa52710;
+$border-color: #c93c00;
+
+%font {
+  font-family: $font-family;
+  color: $font-color1;
+  font-size: 3vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+ .error{
+     color: snow;
+ }
+.logo {
+  margin-top: 1.5vh;
+  margin-bottom: 1vh;
+  width: 30vh;
+}
+
+.radio-btn {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3vh;
+
+  label {
+    font-family: $font-family;
+    font-size: 2.7vh;
+    color: #ffa427;
+  }
+
+  input {
+    margin: 0px;
+    opacity: 10;
+    cursor: pointer;
+  }
+  
+}
+
+.form-login {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    background-color: $secund-color;
+    border-color: $border-color;
+    border-style: groove;
+    border-radius: 10px;
+    width: 600px;
+    height: 4.5vh;
+    @extend %font;
+  }
+
+  h3 {
+    align-self: flex-start;
+    margin-left: 45px;
+    @extend %font;
+  }
+
+  button {
+    background-color: $base-color;
+    margin-top: 2.5vh;
+    border-radius: 3vh;
+    width: 28vw;
+    height: 4.5vh;
+    font-size: 3vh;
+    font-family: $font-family;
+    font-weight: 800;
+    color: $font-color3;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.8),
+      inset 0px 6px 6px rgba(0, 0, 0, 0.26);
+  }
+}

@@ -1,29 +1,47 @@
-import React, { useState } from 'react'
-
+import React, { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 export const FormLogin = ({ handleLogin }) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    const handleEmail = (e) => setEmail(e.target.value);
-    const handlePassword = (e) => setPass(e.target.value);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPass(e.target.value);
 
-    return (
-        <div>
-            <div>
-                <input type="radio" value="Admin" name="profile" /> Admin
-                <input type="radio" value="Waiter" name="profile" /> Mesero
-                <input type="radio" value="kitchen" name="profile" /> Cocina
-            </div>
-            <h3>Nombre:</h3>
-            <input type="text" required />
-            <h3>Correo Electrónico:</h3>
-            <input type="text" placeholder="ejemplo@correo.com" onChange={handleEmail} required />
-            <h3>Password:</h3>
-            <input type="password" placeholder="******" onChange={handlePassword} required />
-            <br />
-            <button onClick={(e) => { e.preventDefault(); handleLogin(email, pass)}} >Entrar</button>
-
-        </div>
-    )
-}
+  return (
+    <>
+      <div className="radio-btn">
+        <input type="radio" className="radio" value="Admin" name="profile" />
+        <label>Admin</label>
+        <input type="radio" className="radio" value="Waiter" name="profile" />
+        <label>Mesero</label>
+        <input type="radio" className="radio" value="kitchen" name="profile" />
+        <label>Cosina</label>
+      </div>
+      <h3>Nombre:</h3>
+      <input type="text" required />
+      <h3>Correo Electrónico:</h3>
+      <input
+        type="email"
+        placeholder="ejemplo@correo.com"
+        onChange={handleEmail}
+        required
+      />
+      <h3>Password:</h3>
+      <input
+        type="password"
+        placeholder="******"
+        onChange={handlePassword}
+        required
+      />
+      <br />
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          handleLogin(email, pass);
+        }}
+      >
+        Entrar
+      </button>
+    </>
+  );
+};
