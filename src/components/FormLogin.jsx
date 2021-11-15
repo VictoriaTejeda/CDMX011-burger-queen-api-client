@@ -9,20 +9,21 @@ export const FormLogin = ({ handleLogin }) => {
 
   return (
     <>
+
       <div className="radio-btn">
         <input type="radio" className="radio" value="Admin" name="profile" />
         <label>Admin</label>
         <input type="radio" className="radio" value="Waiter" name="profile" />
         <label>Mesero</label>
         <input type="radio" className="radio" value="kitchen" name="profile" />
-        <label>Cosina</label>
+        <label>Cocina</label>
       </div>
       <h3>Nombre:</h3>
-      <input type="text" required />
+      <input type="text" placeholder="Nombre completo" required />
       <h3>Correo Electrónico:</h3>
       <input
         type="email"
-        placeholder="ejemplo@correo.com"
+        placeholder="ejemplo@correo.com" pattern=".+@"
         onChange={handleEmail}
         required
       />
@@ -42,6 +43,7 @@ export const FormLogin = ({ handleLogin }) => {
       >
         Entrar
       </button>
+
     </>
   );
 };
