@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyDMmW6KVO55jpPGhKjMbGbBfHMmENJ0330",
     authDomain: "burguer-queen-ee7df.firebaseapp.com",
@@ -14,22 +14,6 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 export const auth = getAuth();
 
-export const singIn =(email,password)=>{
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log (user);
-      console.log ('entre');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log (errorCode,errorMessage );
-      console.log ('no entre');
-    });
-}
 
 export const logOut =()=>{
   onAuthStateChanged(auth, (user) => {

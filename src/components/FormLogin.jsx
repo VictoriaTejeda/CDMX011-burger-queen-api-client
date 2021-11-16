@@ -9,13 +9,14 @@ export const FormLogin = ({ handleLogin }) => {
 
   return (
     <>
+      <form> 
       <div className="radio-btn">
         <input type="radio" className="radio" value="Admin" name="profile" />
         <label>Admin</label>
         <input type="radio" className="radio" value="Waiter" name="profile" />
         <label>Mesero</label>
         <input type="radio" className="radio" value="kitchen" name="profile" />
-        <label>Cosina</label>
+        <label>Cocina</label>
       </div>
       <h3>Nombre:</h3>
       <input type="text" required />
@@ -25,7 +26,7 @@ export const FormLogin = ({ handleLogin }) => {
         placeholder="ejemplo@correo.com"
         onChange={handleEmail}
         required
-      />
+      ></input>
       <h3>Password:</h3>
       <input
         type="password"
@@ -33,7 +34,7 @@ export const FormLogin = ({ handleLogin }) => {
         onChange={handlePassword}
         required
       />
-      <br />
+      </form>
       <button
         onClick={(e) => {
           e.preventDefault();

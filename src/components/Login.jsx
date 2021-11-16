@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { FormLogin } from "./FormLogin";
 import { useNavigate } from "react-router";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import "../Scss/Login.scss";
 import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig";
 
 export const Login = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (email, password) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { logOut, auth } from "../firebaseconfig";
-import { useNavigate } from "react-router";
+import { useNavigate, Navigate } from "react-router";
 
 export const Order = () => {
   const [setError] = useState("");
@@ -35,7 +35,8 @@ export const Order = () => {
   return (
    <>{
       auth ?   <div>
-      <h1>soy Order chavas</h1>
+      
+      <h1>Soy Order</h1>
       <button
         onClick={() => {
           handleSignOut(auth);
@@ -43,7 +44,7 @@ export const Order = () => {
       >
         Cerrar sesión
       </button>
-    </div> : navigate("/")
+    </div> :  <Navigate to="/" />
 }
 </>
   );
