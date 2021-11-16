@@ -4,6 +4,7 @@ $font-family: "Nunito Sans", sans-serif;
 $font-color1: #fafcac;
 $font-color2: #ffa427;
 $font-color3: #c93c00;
+$font-color4:#CCCF4A;
 $base-color: #e7aa2b;
 $secund-color: #ffa52710;
 $border-color: #c93c00;
@@ -23,7 +24,7 @@ $border-color: #c93c00;
   width: 100%;
 }
  .error{
-     color: snow;
+     color: red;
  }
 .logo {
   margin-top: 1.5vh;
@@ -44,10 +45,14 @@ $border-color: #c93c00;
     color: #ffa427;
   }
 
+
   input {
     margin: 0px;
     opacity: 10;
     cursor: pointer;
+  }
+  input[type='radio']:checked:after {
+    color: #ffa427;
   }
   
 }
@@ -66,6 +71,17 @@ $border-color: #c93c00;
     width: 600px;
     height: 4.5vh;
     @extend %font;
+    outline:none;
+  }
+  input:invalid {
+    background-color: $secund-color;
+    border-color: $border-color;
+    color: #eb4545;
+  }
+  input:valid {
+    background-color:#cdcf4a98;
+    color: #0b420b;
+    border-color: $font-color4;
   }
 
   h3 {
@@ -78,6 +94,8 @@ $border-color: #c93c00;
     background-color: $base-color;
     margin-top: 2.5vh;
     border-radius: 3vh;
+    border: none;
+    outline:none;
     width: 28vw;
     height: 4.5vh;
     font-size: 3vh;

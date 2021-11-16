@@ -4,30 +4,24 @@ import { FormLogin } from "./FormLogin";
 import { useNavigate } from "react-router";
 import logo from "../assets/logo.png";
 import "../Scss/Login.scss";
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig";
 
 export const Login = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (email, password) => {
+  const handleLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log (user);
-      navigate("order");
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      setError(errorMessage)  
-      setTimeout(() => setError(''), 2000);
-      console.log (errorCode,errorMessage );
-      
-    });
+      .then(() => {
+        navigate('order');
+        // ...
+      })
+      .catch(() => {
+        setError('Contraseña y/o correo inválidos, vuelve a intentar');
+        setTimeout(() => setError(''), 2500);
+
+      });
   };
   return (
     <>
@@ -36,7 +30,7 @@ export const Login = () => {
           <img src={logo} alt="logo-img" className="logo" />
         </div>
         <div>
-        {error && <p className="error" >{error}</p>}
+          {error && <p className="error" >{error}</p>}
         </div>
         <div className="form-login">
           <FormLogin handleLogin={handleLogin} />
