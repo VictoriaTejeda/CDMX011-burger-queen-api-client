@@ -10,7 +10,7 @@ import { PrivateRoute } from '../src/components/PrivateRoute'
 import { ErrorPage } from './components/ErrorPage';
 
 function App() {
-  const { isLoggedIn } = useState(false)
+  const { isLoggedIn } = useState(true)
   return (
     <BrowserRouter>
       <Routes>

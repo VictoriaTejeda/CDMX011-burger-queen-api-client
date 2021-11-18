@@ -25,6 +25,7 @@ $border-color: #c93c00;
 }
  .error{
      color: red;
+     font-size: 2.5vh
  }
 .logo {
   margin-top: 1.5vh;
@@ -97,7 +98,7 @@ $border-color: #c93c00;
     border-radius: 3vh;
     border: none;
     outline:none;
-    width: 28vw;
+    width: 28vh;
     height: 4.5vh;
     font-size: 3vh;
     font-family: $font-family;
