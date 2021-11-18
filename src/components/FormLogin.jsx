@@ -24,7 +24,7 @@ export const FormLogin = ({ handleLogin }) => {
         <h3>Correo Electrónico:</h3>
         <input
           type="email"
-          placeholder="ejemplo@burguerqueen.com" pattern=".+@burguerqueen\.com" size="30" required
+          placeholder="ejemplo@burgerqueen.com" pattern=".+@burgerqueen\.com" size="30" required
           onChange={handleEmail}
         />
         <h3>Password:</h3>

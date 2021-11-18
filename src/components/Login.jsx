@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FormLogin } from "./FormLogin";
 import { useNavigate } from "react-router";
@@ -6,10 +6,23 @@ import logo from "../assets/logo.png";
 import "../Scss/Login.scss";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("order");
+        const uid = user.uid;
+        console.log("entry", uid);
+      } else {
+        navigate("/");
+      }
+    });
+  }, []);
 
   const handleLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)

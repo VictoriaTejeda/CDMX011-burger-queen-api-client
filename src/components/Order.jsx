@@ -33,18 +33,18 @@ export const Order = () => {
   };
 
   return (
-   <>{
-      auth ?   <div>
-      <h1>soy Order chavas</h1>
-      <button
-        onClick={() => {
-          handleSignOut(auth);
-        }}
-      >
-        Cerrar sesión
-      </button>
-    </div> : navigate("/")
-}
-</>
+    <>{
+      auth ? <div>
+        <h1>soy Order chavas</h1>
+        <button
+          onClick={() => {
+            handleSignOut(auth);
+          }}
+        >
+          Cerrar sesión
+        </button>
+      </div> : navigate("/")
+    }
+    </>
   );
 };
