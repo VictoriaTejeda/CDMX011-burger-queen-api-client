@@ -20,7 +20,8 @@ export const FormLogin = ({ handleLogin }) => {
         </div>
         <h3>Nombre:</h3>
         <input type="text" placeholder="Nombre completo" required size="20"
-          pattern="[a-zA-Z ]{3,30}" />
+          pattern="[a-zA-Z ]{3,30}"
+           />
         <h3>Correo Electrónico:</h3>
         <input
           type="email"

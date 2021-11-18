@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { logOut, auth } from "../firebaseconfig";
 import { useNavigate } from "react-router";
-
+import { Menu } from "./Menu";
+import { Command } from "./Command";
+import "../Scss/Order.scss";
 export const Order = () => {
   const [setError] = useState("");
   const navigate = useNavigate();
-
+  
   const handleSignOut = () => {
     try {
       Swal.fire({
@@ -31,20 +33,25 @@ export const Order = () => {
       console.log(error);
     }
   };
+  
 
   return (
     <>{
-      auth ? <div>
+      auth ? 
+      <div>
         <h1>soy Order chavas</h1>
         <button
           onClick={() => {
-            handleSignOut(auth);
-          }}
-        >
+            handleSignOut(auth);}}>
           Cerrar sesión
         </button>
       </div> : navigate("/")
     }
+    <div>
+      <Menu/>
+      <Command/>
+    </div>
     </>
+
   );
 };
