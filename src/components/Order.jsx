@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2";
 import { logOut, auth } from "../firebaseconfig";
 import { useNavigate } from "react-router";
 import { Menu } from "./Menu";
-import { Command } from "./Command";
 import "../Scss/Order.scss";
+import { helpHttp } from '../helpers/helpHttp'
+
 export const Order = () => {
   const [setError] = useState("");
   const navigate = useNavigate();
+
+  const [dbData, setDbData] = useState([]);
+  //const [dataToEdit, setDataToEdit] = useState(null);
+  let api = helpHttp();
+  let url = 'http://localhost:5000/products';
+
+  useEffect(() => {
+      api.get(url).then((res) => {
+          console.log(res);
+          if (!res.err) {
+              setDbData(res)
+          } else {
+              setDbData(null)
+          }
+      });
+  }, [])
   
   const handleSignOut = () => {
     try {
@@ -34,6 +51,12 @@ export const Order = () => {
     }
   };
   
+  let productosFiltrados = dbData.filter((p) => p.type == 1);
+
+  const filtrarProductos = () => {
+    console.log("Entro al metodo")
+    productosFiltrados = dbData.filter((p) => p.type == 2);
+  }
 
   return (
     <>{
@@ -45,11 +68,14 @@ export const Order = () => {
             handleSignOut(auth);}}>
           Cerrar sesión
         </button>
+        
+          <input type="radio" name="radio-group" value="1" defaultChecked/>Desayuno
+          <input type="radio" name="radio-group" onClick={()=>{filtrarProductos()}} value="2"/>Dia
+        
       </div> : navigate("/")
     }
     <div>
-      <Menu/>
-      <Command/>
+      <Menu products={productosFiltrados}/>
     </div>
     </>
 

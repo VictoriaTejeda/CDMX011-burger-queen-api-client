@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import { BreakfastMenu } from './menuComponents/BreakfastMenu'
-import { DayMenu } from './menuComponents/DayMenu'
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { Producto } from './Producto';
 
-export const Menu = () => {
-    const [breackFast, setBreackfast] = useState(true);
+export const Menu = (props) => {
+    let {
+        products
+      } = props;
+
     
     return (
         <div>
-            <>
-                <button onClick={() => { setBreackfast(true) }}>Desayuno</button>
-                <button onClick={() => { setBreackfast(false) }}>Menú del día</button>
-            </>
-            {breackFast ? <BreakfastMenu /> : <DayMenu />}
+            <h1>Todos los Productos</h1>
+            <section>
+            {products.map(product => <Producto product={product} key={product.id}></Producto>)}
+            </section>
         </div>
     );
 }
