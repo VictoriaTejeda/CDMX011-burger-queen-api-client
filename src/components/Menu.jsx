@@ -3,7 +3,8 @@ import { BreakfastMenu } from './menuComponents/BreakfastMenu'
 import { DayMenu } from './menuComponents/DayMenu'
 
 export const Menu = () => {
-    const [breackFast, setBreackfast] = useState(true)
+    const [breackFast, setBreackfast] = useState(true);
+    
     return (
         <div>
             <>
