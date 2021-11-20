@@ -15,7 +15,7 @@ export const Login = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigate("order");
+        navigate("home");
         const uid = user.uid;
         console.log("entry", uid);
       } else {
@@ -28,7 +28,7 @@ export const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate('order');
+        navigate('home');
         // ...
       })
       .catch(() => {

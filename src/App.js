@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { Login } from './components/Login';
-import { Order } from './components/Order';
+import { Home } from './components/Home';
 import { PrivateRoute } from '../src/components/PrivateRoute'
 import { ErrorPage } from './components/ErrorPage';
 
@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="order" element={<PrivateRoute> <Order isLoggedIn={isLoggedIn} /></PrivateRoute>} />
+        <Route path="home" element={<PrivateRoute> <Home isLoggedIn={isLoggedIn} /></PrivateRoute>} />
         <Route path="*" element={< ErrorPage/>} />
       </Routes>
     </BrowserRouter>
