@@ -1,25 +1,69 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Producto } from "./Producto";
 import "../Scss/Menu.scss";
 
 export const Menu = (props) => {
   let { products } = props;
 
-  const [lProducts, setlProducts] = useState([]);
+  const [orderProducts, setorderProducts] = useState([]);
 
   const getProductos = (product) => {
-    lProducts.push(product);
-    console.log("Lista de Productos:");
-    console.log(lProducts);
-    const newArray = lProducts.map((obj) => obj);
-    setlProducts(newArray);
+    if (orderProducts.find((p) => p.id === product.id) === undefined) {
+      let orderProd = {
+        id: product.id,
+        quantity: 1,
+        price: product.price,
+        name: product.name,
+        sum: product.price,
+      };
+      orderProducts.push(orderProd);
+    } else {
+      let orderProd = orderProducts.find((p) => p.id === product.id);
+      const index = orderProducts.findIndex((p) => p.id === orderProd.id);
+      let cantidad = orderProd.quantity + 1;
+      let sum = cantidad * orderProd.price;
+      orderProd.quantity = cantidad;
+      orderProd.sum = sum;
+      orderProducts.splice(index, 1);
+      orderProducts.push(orderProd);
+    }
+    const newArray = orderProducts.map((obj) => obj);
+    setorderProducts(newArray);
   };
 
-  useEffect(() => {
+  const addOrderProduct = (orderProd) => {
+    const index = orderProducts.findIndex((p) => p.id === orderProd.id);
+    let cantidad = orderProd.quantity + 1;
+    let sum = cantidad * orderProd.price;
+    orderProd.quantity = cantidad;
+    orderProd.sum = sum;
+    orderProducts.splice(index, 1);
+    orderProducts.push(orderProd);
+    const newArray = orderProducts.map((obj) => obj);
+    setorderProducts(newArray);
+  };
+
+  const removeOrderProduct = (orderProd) => {
+    const index = orderProducts.findIndex((p) => p.id === orderProd.id);
+    let cantidad = orderProd.quantity - 1;
+    if (cantidad === 0) {
+      orderProducts.splice(index, 1);
+    } else {
+      let sum = cantidad * orderProd.price;
+      orderProd.quantity = cantidad;
+      orderProd.sum = sum;
+      orderProducts.splice(index, 1);
+      orderProducts.push(orderProd);
+    }
+
+    const newArray = orderProducts.map((obj) => obj);
+    setorderProducts(newArray);
+  };
+  //useEffect(() => {
     // Actualiza el título del documento usando la API del navegador
-    document.title = `${lProducts}`;
-  });
+  //  document.title = `${orderProducts}`;
+  //});
 
   return (
     <div>
@@ -37,15 +81,27 @@ export const Menu = (props) => {
         <section className="orden">
           <h2>Ordenes</h2>
           <div>
-            {lProducts.map((product) => (
-              <div className="comanda" key={product.id}>
-                <div>cantidad</div>
-                <div>{product.name}</div>
-                <div>{product.price}</div>
-                <div>total</div>
+            {orderProducts.map((op) => (
+              <div className="comanda" key={op.id}>
+                <div>{op.quantity}</div>
+                <div>{op.name}</div>
+                <div>{op.price}</div>
+                <div>{op.sum}</div>
                 <div>
-                  <button>+</button>
-                  <button>-</button>
+                  <button
+                    onClick={() => {
+                      addOrderProduct(op);
+                    }}
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => {
+                      removeOrderProduct(op);
+                    }}
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             ))}

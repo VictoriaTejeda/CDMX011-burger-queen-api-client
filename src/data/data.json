@@ -8,19 +8,19 @@
     },
     {
       "id": 2,
-      "name": "Café americano",
+      "name": "Café con leche",
       "price": 7,
       "type": 1
     },
     {
       "id": 3,
-      "name": "Café con leche",
+      "name": "Sandwich de jamón y queso",
       "price": 10,
       "type": 1
     },
     {
       "id": 4,
-      "name": "Sandwich de jamón y queso",
+      "name": "Jugo de frutas natural",
       "price": 7,
       "type": 1
     },
