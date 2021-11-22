@@ -21,7 +21,7 @@ export const Menu = (props) => {
     } else {
       let orderProd = orderProducts.find((p) => p.id === product.id);
       const index = orderProducts.findIndex((p) => p.id === orderProd.id);
-      let cantidad = orderProd.quantity + 1;
+      let cantidad = orderProd.quantity;
       let sum = cantidad * orderProd.price;
       orderProd.quantity = cantidad;
       orderProd.sum = sum;
