@@ -149,6 +149,9 @@ $border-color: #c93c00;
 }   
 
 .total{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-top:3px solid #cccf4a;
   padding-top:1vh;
   color: #c93c00;
