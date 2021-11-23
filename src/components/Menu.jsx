@@ -79,9 +79,9 @@ export const Menu = (props) => {
 
   return (
     <div>
-      <h1>Producto/Costo </h1>
       <div className="menu-wrap">
-        <section>
+        <section className="items">
+        <h1 className="menu-title">Menu</h1>
           {products.map((product) => (
             <Items
               product={product}
@@ -95,10 +95,10 @@ export const Menu = (props) => {
           <div>
             {orderProducts.map((op) => (
               <div className="comanda" key={op.id}>
-                <div>{op.quantity}</div>
-                <div>{op.name}</div>
-                <div>{op.price}</div>
-                <div>{op.sum}</div>
+                <p>{op.quantity}</p>
+                <p>{op.name}</p>
+                <p>{op.price}</p>
+                <p>{op.sum}</p>
                 <div>
                   <button
                     onClick={() => {
@@ -118,7 +118,7 @@ export const Menu = (props) => {
               </div>
             ))}
           </div>
-          <div className="comanda">total: {total}</div>
+          <div className="total">Total:  $ {total}</div>
         </section>
       </div>
     </div>
