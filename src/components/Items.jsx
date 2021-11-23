@@ -8,7 +8,6 @@ export const Items = (props) => {
     } = props;
 
     const addProduct = (item) => {
-        console.log("aprieto boton de agregar Producto", item)
         sendProducts(item)
     }
     return (
