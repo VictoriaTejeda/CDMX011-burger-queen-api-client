@@ -60,21 +60,27 @@ export const Order = () => {
   return (
     <>
       <div className="wrap-logo">
-      <img src={logo} alt="logo-img" className="logo-order" />
-      {auth ? (
-        <div>
-          <button
-            onClick={() => {
-              handleSignOut(auth);
-            }}
-          >
-            Cerrar sesión
-          </button>
-        </div>
-      ) : (
-        navigate("/")
-      )}
+
+        <img src={logo} alt="logo-img" className="logo-order" />
+        <div><h3>Nombre:</h3>
+          <input type="text" placeholder="Nombre completo" required size="20"
+            pattern="[a-zA-Z ]{3,30}"
+          /></div>
+        {auth ? (
+          <div>
+            <button
+              onClick={() => {
+                handleSignOut(auth);
+              }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        ) : (
+          navigate("/")
+        )}
       </div>
+
       <div>
         <button
           className="btn-menu"

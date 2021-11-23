@@ -21,34 +21,33 @@ $border-color: #c93c00;
 
 .menu-title {
   @extend %font;
-  font-size: 5vh;
+  font-size: 3vh;
   align-content: center;
   color: $font-color2;
 }
 
 .btn-menu {
   background: $base-color;
-  border: 3px solid #b06a09;
+  border: 3px solid #ffa427;
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(250, 238, 168, 0.308);
+  box-shadow: 0px 4px 4px rgba(168, 161, 120, 0.308);
   border-radius: 30px;
   color: black;
-  width: 20vh;
-  height: 5vh;
+  width: 15vh;
+  height: 4vh;
   margin: 2vmin;
   @extend %font;
 }
 
 .btn-menu:active {
-  box-shadow: 0 5px #666;
+  box-shadow: 0 5px rgba(88, 80, 80, 0.863);
   transform: translateY(10px);
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .btn-menu:hover {
-  background: #8c605e;
+  background: #8C605E;
   border: 3px solid #8c605e;
-  opacity: 0.7;
-  color: $font-color1;
+  color: #ffa427;
 }
 
 .menu-wrap {
@@ -64,46 +63,65 @@ $border-color: #c93c00;
   align-items: center;
 }
 .card {
-  background-color: lightyellow;
+  background-color: none;
+  border: #e7aa2b;
+  border-style:solid;
+  border-width: thick;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
+  max-width: 220px;
+  margin: 3vmin;
   text-align: center;
-  font-family: arial;
 
+  
   button {
     border: none;
     outline: 0;
     padding: 12px;
-    color: white;
-    background-color: #000;
+    color:#cccf4a;
+    background-color: #e7aa2b;
     text-align: center;
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    font-family: "Nunito Sans", sans-serif;
+    color: #000000;
+    font-weight:bold;
   }
 
   button:hover {
-    opacity: 0.7;
+    background-color: #c93c00c4;
+    color:rgb(0, 0, 0);
+  }
+  p{
+    padding: 1.5vmax;
+    font-size: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    margin:0;
+    color:#fafcac;
   }
 }
 
 .price {
-  color: grey;
-  font-size: 22px;
+  color:rgb(0, 0, 0);
+  font-size: 25px;
+  margin: 0;
 }
 
 .orden {
-  border: #e7aa2b;
-  border-style: double;
+  border: #cccf4a;
+  border-style:solid;
   border-width: thick;
-  width: 40%;
+  width: 55%;
+  margin-top: 9vh;
 
   h2{
     margin-top: 0%;
     margin-bottom: 1.2vh;
     border-bottom: $base-color;
-    background-color: $base-color;
+    background-color: #cccf4a;
+    font-size: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    padding: .5vh;
   }
 }
 
@@ -114,20 +132,29 @@ $border-color: #c93c00;
   align-items: center;
 
   p {
-    color: beige;
-    font-size: 2.5vh;
+    color: #fafcac;
+    font-size: 2vh;
     margin: 5px;
+   
   }
 
   button {
     margin: 5px;
     background-color: $font-color3;
+    border-radius: 50%;
+    border:none;
+    width: 30px;
+    height:30px;
   }
-}
+}   
 
 .total{
-  border-top: $base-color;
-  color: $font-color4;
+  border-top:3px solid #cccf4a;
+  padding-top:1vh;
+  color: #c93c00;
   border-width: medium;
+  font-size: 2.5vh;
   @extend %font;
+  padding-left: 1vh;
+
 }

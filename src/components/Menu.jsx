@@ -9,6 +9,11 @@ export const Menu = (props) => {
   const [total, setTotal] = useState([]);
 
   const getProducts = (product) => {
+      setOrderProducts((prevOrderProducts) => {
+        product.quantity = 1;
+        const auxProducts = [...prevOrderProducts, product];
+        return auxProducts;
+      });
     if (orderProducts.find((p) => p.id === product.id) === undefined) {
       let orderProd = {
         id: product.id,
@@ -81,7 +86,7 @@ export const Menu = (props) => {
     <div>
       <div className="menu-wrap">
         <section className="items">
-        <h1 className="menu-title">Menu</h1>
+        <h1 className="menu-title">Menú</h1>
           {products.map((product) => (
             <Items
               product={product}
