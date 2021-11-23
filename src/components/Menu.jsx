@@ -6,87 +6,71 @@ export const Menu = (props) => {
   let { products } = props;
 
   const [orderProducts, setOrderProducts] = useState([]);
-  const [total, setTotal] = useState([]);
+
+  // const order = {
+  //   clientName,
+  //   status: 'pending',
+  //   order: {
+  //     items: orderProducts,
+  //     date: today.toLocaleDateString(),
+  //     time: time.toLocaleTimeString()
+  //   }
+  // };
+
 
   const getProducts = (product) => {
-      setOrderProducts((prevOrderProducts) => {
-        product.quantity = 1;
-        const auxProducts = [...prevOrderProducts, product];
-        return auxProducts;
-      });
-    if (orderProducts.find((p) => p.id === product.id) === undefined) {
-      let orderProd = {
-        id: product.id,
-        quantity: 1,
-        price: product.price,
-        name: product.name,
-        sum: product.price,
-        total: product.price,
-      };
-      orderProducts.push(orderProd);
+    const productExist = orderProducts.find((p) => p.id === product.id);
+    if (productExist) {
+      setOrderProducts(
+        orderProducts.map((p) =>
+          p.id === product.id
+            ? { ...productExist, quantity: productExist.quantity }
+            : p
+        )
+      );
     } else {
-      let orderProd = orderProducts.find((p) => p.id === product.id);
-      const index = orderProducts.findIndex((p) => p.id === orderProd.id);
-      let cant = orderProd.quantity;
-      let sum = cant * orderProd.price;
-      orderProd.quantity = cant;
-      orderProd.sum = sum;
-      orderProducts.splice(index, 1);
-      orderProducts.push(orderProd);
+      setOrderProducts([...orderProducts, { ...product, quantity: 1 }]);
     }
-    const newArray = orderProducts.map((obj) => obj);
-    console.log(newArray);
-    setOrderProducts(newArray);
-    const sumall = newArray
-      .map((item) => item.sum)
-      .reduce((prev, curr) => prev + curr, 0);
-    console.log("esto es total  " + sumall);
-    setTotal(sumall);
-  };
-  const addOrderProduct = (orderProd) => {
-    const index = orderProducts.findIndex((p) => p.id === orderProd.id);
-    let cant = orderProd.quantity + 1;
-    let sum = cant * orderProd.price;
-    orderProd.quantity = cant;
-    orderProd.sum = sum;
-    orderProducts.splice(index, 1);
-    orderProducts.push(orderProd);
-    const newArray = orderProducts.map((obj) => obj);
-    //console.log(newArray)
-    setOrderProducts(newArray);
-    const sumall = newArray
-      .map((item) => item.sum)
-      .reduce((prev, curr) => prev + curr, 0);
-    console.log("esto es total  " + sumall);
-    setTotal(sumall);
   };
 
-  const removeOrderProduct = (orderProd) => {
-    const index = orderProducts.findIndex((p) => p.id === orderProd.id);
-    let cant = orderProd.quantity - 1;
-    if (cant === 0) {
-      orderProducts.splice(index, 1);
+  const addOrderProduct = (product) => {
+    const productExist = orderProducts.find((p) => p.id === product.id);
+    if (productExist) {
+      setOrderProducts(
+        orderProducts.map((p) =>
+          p.id === product.id
+            ? { ...productExist, quantity: productExist.quantity + 1 }
+            : p
+        )
+      );
     } else {
-      let sum = cant * orderProd.price;
-      orderProd.quantity = cant;
-      orderProd.sum = sum;
-      orderProducts.splice(index, 1);
-      orderProducts.push(orderProd);
+      setOrderProducts([...orderProducts, { ...product, quantity: 1 }]);
     }
-    const newArray = orderProducts.map((obj) => obj);
-    setOrderProducts(newArray);
-    const sumall = newArray
-      .map((item) => item.sum)
-      .reduce((prev, curr) => prev + curr, 0);
-    console.log("esto es total  " + sumall);
-    setTotal(sumall);
   };
 
+  const removeOrderProduct = (product) => {
+    const productExist = orderProducts.find((p) => p.id === product.id);
+    if (productExist.quantity === 1) {
+      setOrderProducts(orderProducts.filter((p) => p.id !== product.id));
+    } else {
+      setOrderProducts(
+        orderProducts.map((p) =>
+          p.id === product.id
+            ? { ...productExist, quantity: productExist.quantity - 1 }
+            : p
+        )
+      );
+    }
+  };
+
+  const itemsPrice = orderProducts.reduce((a, c) => a + c.price * c.quantity, 0);
+  
+  
   return (
     <div>
       <div className="menu-wrap">
         <section className="items">
-        <h1 className="menu-title">Menú</h1>
+          <h1 className="menu-title">Menú</h1>
           {products.map((product) => (
             <Items
               product={product}
@@ -123,7 +107,9 @@ export const Menu = (props) => {
               </div>
             ))}
           </div>
-          <div className="total">Total:  $ {total}</div>
+          <div className="total">Total: $ {itemsPrice}
+          <button className="confirm">confirmarPedido</button>
+          </div>
         </section>
       </div>
     </div>
