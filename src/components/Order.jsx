@@ -4,31 +4,29 @@ import { logOut, auth } from "../firebaseconfig";
 import { useNavigate } from "react-router";
 import { Menu } from "./Menu";
 import "../Scss/Order.scss";
-import { helpHttp } from '../helpers/helpHttp'
+import { helpHttp } from "../helpers/helpHttp";
 import logo from "../assets/logo.png";
-
 
 export const Order = () => {
   const [setError] = useState("");
-  const [menu, setMenu] = useState('desayuno');
+  const [menu, setMenu] = useState("desayuno");
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
 
   let api = helpHttp();
-  let url = 'http://localhost:5000/products';
+  let url = "http://localhost:5000/products";
 
   useEffect(() => {
     api.get(url).then((res) => {
       console.log(res);
       if (!res.err) {
-        setData(res)
+        setData(res);
       } else {
-        setData(null)
+        setData(null);
       }
     });
-  }, [])
-
+  }, []);
 
   const handleSignOut = () => {
     try {
@@ -59,30 +57,45 @@ export const Order = () => {
     return data.filter((p) => p.type == menu);
   };
 
-
-
   return (
     <>
+      <div className="wrap-logo">
       <img src={logo} alt="logo-img" className="logo-order" />
-      {
-        auth ?
-          <div>
-            <button
-              onClick={() => {
-                handleSignOut(auth);
-              }}>
-              Cerrar sesión
-            </button>
-          </div> : navigate("/")
-      }
-      <div>
-        <button className='btn-menu' onClick={() => { setMenu('desayuno') }}>Desayuno</button>
-        <button className='btn-menu' onClick={() => { setMenu('comida') }}>Comida</button>
+      {auth ? (
+        <div>
+          <button
+            onClick={() => {
+              handleSignOut(auth);
+            }}
+          >
+            Cerrar sesión
+          </button>
+        </div>
+      ) : (
+        navigate("/")
+      )}
       </div>
-      <div className='render-menu' >
+      <div>
+        <button
+          className="btn-menu"
+          onClick={() => {
+            setMenu("desayuno");
+          }}
+        >
+          Desayuno
+        </button>
+        <button
+          className="btn-menu"
+          onClick={() => {
+            setMenu("comida");
+          }}
+        >
+          Comida
+        </button>
+      </div>
+      <div className="render-menu">
         {data && <Menu products={filterProducts()} />}
       </div>
     </>
-
   );
 };
