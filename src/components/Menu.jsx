@@ -64,8 +64,8 @@ export const Menu = (props) => {
   };
 
   const itemsPrice = orderProducts.reduce((a, c) => a + c.price * c.quantity, 0);
-  
-  
+
+
   return (
     <div>
       <div className="menu-wrap">
@@ -108,7 +108,7 @@ export const Menu = (props) => {
             ))}
           </div>
           <div className="total">Total: $ {itemsPrice}
-          <button className="confirm">confirmarPedido</button>
+            <button className="confirm">Confirmar pedido</button>
           </div>
         </section>
       </div>

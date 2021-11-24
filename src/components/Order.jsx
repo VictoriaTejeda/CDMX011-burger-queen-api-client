@@ -6,6 +6,7 @@ import { Menu } from "./Menu";
 import "../Scss/Order.scss";
 import { helpHttp } from "../helpers/helpHttp";
 import logo from "../assets/logo.png";
+import cerrar from "../assets/cerrar.png"
 
 export const Order = () => {
   const [setError] = useState("");
@@ -34,13 +35,13 @@ export const Order = () => {
         title: "¿Desea Cerrar sesión?",
         icon: "question",
         showCancelButton: true,
-        confirmButtonColor: "#385a64",
-        cancelButtonColor: "#e44d57",
+        confirmButtonColor: "#c93c00",
+        cancelButtonColor: "#e7aa2b",
         confirmButtonText: "Si",
         cancelButtonText: "No",
         width: "50vh",
         heightAuto: "true",
-        position: "top-right",
+        position: "center",
       }).then((result) => {
         if (result.isConfirmed) {
           logOut(auth);
@@ -62,19 +63,12 @@ export const Order = () => {
       <div className="wrap-logo">
 
         <img src={logo} alt="logo-img" className="logo-order" />
-        <div><h3>Nombre:</h3>
-          <input type="text" placeholder="Nombre completo" required size="20"
-            pattern="[a-zA-Z ]{3,30}"
-          /></div>
+        <div><h3>Nombre del cliente:</h3>
+          <input type="text" placeholder="Nombre completo" /></div>
         {auth ? (
           <div>
-            <button
-              onClick={() => {
-                handleSignOut(auth);
-              }}
-            >
-              Cerrar sesión
-            </button>
+            {/*<button onClick={() => { handleSignOut(auth);}}> Cerrar sesión</button>*/}
+            <img src={cerrar} alt="exit" className="cerrar" onClick={() => { handleSignOut(auth); }} />
           </div>
         ) : (
           navigate("/")

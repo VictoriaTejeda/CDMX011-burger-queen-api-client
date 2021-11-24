@@ -18,6 +18,11 @@ $border-color: #c93c00;
   margin-bottom: 1vh;
   width: 20vh;
 }
+.cerrar{
+  width: 8vh;
+  margin-right:3vh;
+  margin-bottom: 6vh;
+}
 
 .menu-title {
   @extend %font;
@@ -160,4 +165,21 @@ $border-color: #c93c00;
   @extend %font;
   padding-left: 1vh;
 
+}
+.confirm{
+  background: #8c605e;
+  border: 3px solid #8c605e;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(168, 161, 120, 0.308);
+  border-radius: 30px;
+  color: black;
+  width: 20vh;
+  height: 4vh;
+  margin: 1.5vmin;
+  @extend %font;
+  font-size: 1.9vh;
+}
+.confirm:hover{
+  background: #924845;
+  border: 3px solid #924845;
 }
