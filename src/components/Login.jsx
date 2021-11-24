@@ -16,8 +16,7 @@ export const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         navigate("order");
-        const uid = user.uid;
-        console.log("entry", uid);
+        console.log(user.email)
       } else {
         navigate("/");
       }

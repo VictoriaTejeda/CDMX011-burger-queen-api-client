@@ -6,13 +6,13 @@ import { Menu } from "./Menu";
 import "../Scss/Order.scss";
 import { helpHttp } from "../helpers/helpHttp";
 import logo from "../assets/logo.png";
-import cerrar from "../assets/cerrar.png"
+import cerrar from "../assets/cerrar.png";
 
 export const Order = () => {
   const [setError] = useState("");
   const [menu, setMenu] = useState("desayuno");
+  const [client, setClient] = useState("");
   const navigate = useNavigate();
-
   const [data, setData] = useState([]);
 
   let api = helpHttp();
@@ -61,14 +61,26 @@ export const Order = () => {
   return (
     <>
       <div className="wrap-logo">
-
         <img src={logo} alt="logo-img" className="logo-order" />
-        <div><h3>Nombre del cliente:</h3>
-          <input type="text" placeholder="Nombre completo" /></div>
+        <div>
+          <h3 className="name">Nombre del cliente:</h3>
+          <input
+            className="name"
+            type="text"
+            placeholder="Nombre completo"
+            onBlur={(event) => setClient(event.target.value)}
+          />
+        </div>
         {auth ? (
           <div>
-            {/*<button onClick={() => { handleSignOut(auth);}}> Cerrar sesión</button>*/}
-            <img src={cerrar} alt="exit" className="cerrar" onClick={() => { handleSignOut(auth); }} />
+            <img
+              src={cerrar}
+              alt="exit"
+              className="cerrar"
+              onClick={() => {
+                handleSignOut(auth);
+              }}
+            />
           </div>
         ) : (
           navigate("/")
@@ -94,7 +106,7 @@ export const Order = () => {
         </button>
       </div>
       <div className="render-menu">
-        {data && <Menu products={filterProducts()} />}
+        {data && <Menu products={filterProducts()} client={client} />}
       </div>
     </>
   );

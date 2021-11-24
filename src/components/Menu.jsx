@@ -1,22 +1,49 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Items } from "./Items";
+import { helpHttp } from "../helpers/helpHttp";
+import { getAuth } from "firebase/auth";
 
 export const Menu = (props) => {
-  let { products } = props;
-
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log(user.email);
+  let { products, client } = props;
+  console.log(products);
+  let date = new Date();
   const [orderProducts, setOrderProducts] = useState([]);
+  const [db, setDb] = useState([]);
 
-  // const order = {
-  //   clientName,
-  //   status: 'pending',
-  //   order: {
-  //     items: orderProducts,
-  //     date: today.toLocaleDateString(),
-  //     time: time.toLocaleTimeString()
-  //   }
-  // };
 
+  const order = {
+    waiter: user.email,
+    clientName: client,
+    status: "pending",
+    orderProducts,
+    date: date.toLocaleString(),
+  };
+
+  let api = helpHttp();
+  let url = "http://localhost:5000/orders";
+
+  const createOrder = (data) => {
+    console.log('data manda orden')
+    console.log(data);
+
+    let options = {
+      body: data,
+      headers: { "content-type": "application/json" },
+    };
+
+    api.post(url, options).then((res)=>{
+      console.log(res);
+      if(!res.err){
+        setDb([...db, res])
+      } else{
+        console.log(res);
+      }
+    })
+  };
 
   const getProducts = (product) => {
     const productExist = orderProducts.find((p) => p.id === product.id);
@@ -33,18 +60,18 @@ export const Menu = (props) => {
     }
   };
 
-  const addOrderProduct = (product) => {
-    const productExist = orderProducts.find((p) => p.id === product.id);
+  const addOrderProduct = (OrderProduct) => {
+    const productExist = orderProducts.find((p) => p.id === OrderProduct.id);
     if (productExist) {
       setOrderProducts(
         orderProducts.map((p) =>
-          p.id === product.id
+          p.id === OrderProduct.id
             ? { ...productExist, quantity: productExist.quantity + 1 }
             : p
         )
       );
     } else {
-      setOrderProducts([...orderProducts, { ...product, quantity: 1 }]);
+      setOrderProducts([...orderProducts, { ...OrderProduct, quantity: 1 }]);
     }
   };
 
@@ -63,14 +90,16 @@ export const Menu = (props) => {
     }
   };
 
-  const itemsPrice = orderProducts.reduce((a, c) => a + c.price * c.quantity, 0);
-
+  const itemsPrice = orderProducts.reduce(
+    (a, c) => a + c.price * c.quantity,
+    0
+  );
 
   return (
     <div>
       <div className="menu-wrap">
         <section className="items">
-          <h1 className="menu-title">Menú</h1>
+          
           {products.map((product) => (
             <Items
               product={product}
@@ -80,7 +109,7 @@ export const Menu = (props) => {
           ))}
         </section>
         <section className="orden">
-          <h2>Ordenes</h2>
+          <h2>Orden de: {client}</h2>
           <div>
             {orderProducts.map((op) => (
               <div className="comanda" key={op.id}>
@@ -107,8 +136,17 @@ export const Menu = (props) => {
               </div>
             ))}
           </div>
-          <div className="total">Total: $ {itemsPrice}
-            <button className="confirm">Confirmar pedido</button>
+          <div className="total">
+            Total: $ {itemsPrice}
+            <button
+              className="confirm"
+              onClick={() => {
+                console.log(order);
+                createOrder(order)
+              }}
+            >
+              Confirmar pedido
+            </button>
           </div>
         </section>
       </div>
