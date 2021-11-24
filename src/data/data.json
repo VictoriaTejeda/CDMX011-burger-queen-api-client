@@ -72,5 +72,136 @@
       "price": 10,
       "type": "comida"
     }
+  ],
+  "orders": [
+    {
+      "clientName": "",
+      "status": "pending",
+      "items": [
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Jugo de Naranja",
+          "price": 7,
+          "type": "desayuno",
+          "quantity": 1
+        }
+      ],
+      "date": "24/11/2021 1:39:44",
+      "id": 1
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "",
+      "status": "pending",
+      "orderProducts": [
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Jugo de Naranja",
+          "price": 7,
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Café con leche",
+          "price": 10,
+          "type": "desayuno",
+          "quantity": 1
+        }
+      ],
+      "date": "24/11/2021 2:54:33",
+      "id": 2
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "Alma",
+      "status": "pending",
+      "orderProducts": [
+        {
+          "id": 6,
+          "name": "Hamburguesa doble",
+          "price": 15,
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Papas fritas",
+          "price": 5,
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "name": "Agua 750ml",
+          "price": 7,
+          "type": "comida",
+          "quantity": 1
+        }
+      ],
+      "date": "24/11/2021 9:24:22",
+      "id": 3
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "Diana",
+      "status": "pending",
+      "orderProducts": [
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "type": "desayuno",
+          "quantity": 2
+        },
+        {
+          "id": 4,
+          "name": "Sandwich de jamón y queso",
+          "price": 7,
+          "type": "desayuno",
+          "quantity": 1
+        }
+      ],
+      "date": "24/11/2021 10:17:39",
+      "id": 4
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "",
+      "status": "pending",
+      "orderProducts": [],
+      "date": "24/11/2021 11:51:00",
+      "id": 5
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "",
+      "status": "pending",
+      "orderProducts": [],
+      "date": "24/11/2021 12:55:11",
+      "id": 6
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "",
+      "status": "pending",
+      "orderProducts": [],
+      "date": "24/11/2021 12:55:13",
+      "id": 7
+    }
   ]
 }
