@@ -8,8 +8,8 @@ $secund-color: #ffa52710;
 $border-color: #c93c00;
 
 $breakpoint-sm: 767px;
-$breakpoint-md: 1023px;
-$breakpoint-lg: 1360px;
+$breakpoint-md: 1000px;
+$breakpoint-lg: 1800px;
 
 @mixin media($media) {
   @if $media == xs {
@@ -55,7 +55,11 @@ $breakpoint-lg: 1360px;
   height: 4vh;
   margin: 2vmin;
   @extend %font;
-
+  @include media(md) {
+    margin-left: 6vh;
+    width: 18vh;
+    height:5vh;
+  }
   
 }
 
@@ -140,7 +144,7 @@ $breakpoint-lg: 1360px;
   margin-top: 9vh;
   position: -webkit-sticky;
   position: sticky;
-  top: 20vh;
+  top: 15vh;
   
 
   h2{
@@ -228,4 +232,17 @@ $breakpoint-lg: 1360px;
     flex-direction: row;
     flex-wrap: wrap;
   }
+}
+
+.waiter{
+  float: right;
+  margin-right: 3vh;
+  color:#8c605e;
+  @extend %font;
+  position: -webkit-sticky;
+  position: sticky;
+ bottom: 2.5vh;
+ @include media(md) {
+  margin-right: 6vh;
+}
 }

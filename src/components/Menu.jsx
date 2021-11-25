@@ -7,9 +7,7 @@ import { getAuth } from "firebase/auth";
 export const Menu = (props) => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user.email);
   let { products, client } = props;
-  console.log(products);
   let date = new Date();
   const [orderProducts, setOrderProducts] = useState([]);
   const [db, setDb] = useState([]);

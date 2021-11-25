@@ -8,7 +8,8 @@ import { helpHttp } from "../helpers/helpHttp";
 import logo from "../assets/logo.png";
 import cerrar from "../assets/cerrar.png";
 
-export const Order = () => {
+export const WaiterPage = () => {
+  const user = auth.currentUser;
   const [setError] = useState("");
   const [menu, setMenu] = useState("desayuno");
   const [client, setClient] = useState("");
@@ -68,7 +69,9 @@ export const Order = () => {
             className="name"
             type="text"
             placeholder="Nombre completo"
+            pattern="[a-z]{3,15}"
             onBlur={(event) => setClient(event.target.value)}
+            required
           />
         </div>
         {auth ? (
@@ -108,6 +111,7 @@ export const Order = () => {
       <div className="render-menu">
         {data && <Menu products={filterProducts()} client={client} />}
       </div>
+      <h3 className="waiter">Usuario: {user.email}</h3>
     </>
   );
 };
