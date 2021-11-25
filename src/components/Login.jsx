@@ -15,7 +15,7 @@ export const Login = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigate("order");
+        navigate("waiter");
         console.log(user.email)
       } else {
         navigate("/");
