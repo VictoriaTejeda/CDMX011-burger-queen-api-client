@@ -217,12 +217,20 @@ $breakpoint-lg: 1800px;
 }
 .confirm:hover{
   background: #924845;
-  border: 3px solid #924845;
+  border: 3px solid #92484586;
 }
 
 .name{
   @extend %font;
   color:$font-color2;
+}
+.name-input{
+  background-color:#8c605e8e ;
+  border: 3px solid #8c605e00;
+  border-radius: 10px;
+  color: #fafcac;
+  outline:none;
+  padding: .5vh;
 }
 
 .items{

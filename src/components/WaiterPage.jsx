@@ -66,7 +66,7 @@ export const WaiterPage = () => {
         <div>
           <h3 className="name">Nombre del cliente:</h3>
           <input
-            className="name"
+            className="name-input"
             type="text"
             placeholder="Nombre completo"
             pattern="[a-z]{3,15}"
