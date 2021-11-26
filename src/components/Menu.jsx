@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Items } from "./Items";
 import { helpHttp } from "../helpers/helpHttp";
 import { getAuth } from "firebase/auth";
+import Swal from "sweetalert2";
 
 export const Menu = (props) => {
   const auth = getAuth();
@@ -25,22 +26,40 @@ export const Menu = (props) => {
   let url = "http://localhost:5000/orders";
 
   const createOrder = (data) => {
-    console.log('data manda orden')
-    console.log(data);
+    Swal.fire({
+      title: 'Enviar comanda',
+      text: "¿Estás seguro de enviar comanda a cocina?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Enviar!',
+      cancelButtonText: 'Cancelar envío'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let options = {
+          body: data,
+          headers: { "content-type": "application/json" },
+        };
 
-    let options = {
-      body: data,
-      headers: { "content-type": "application/json" },
-    };
-
-    api.post(url, options).then((res)=>{
-      console.log(res);
-      if(!res.err){
-        setDb([...db, res])
-      } else{
-        console.log(res);
+        api.post(url, options).then((res) => {
+          console.log(res);
+          if (!res.err) {
+            setDb([...db, res])
+          } else {
+            console.log(res);
+          }
+        })
+        Swal.fire(
+          'Envio realizado con éxito',
+        )
+      
+      } else {
+        Swal.fire(
+          'Envío cancelado')
       }
     })
+    console.log(data);
   };
 
   const getProducts = (product) => {
@@ -97,7 +116,7 @@ export const Menu = (props) => {
     <div>
       <div className="menu-wrap">
         <section className="items">
-          
+
           {products.map((product) => (
             <Items
               product={product}
@@ -143,7 +162,7 @@ export const Menu = (props) => {
                 createOrder(order)
               }}
             >
-              Confirmar pedido
+              Enviar pedido
             </button>
           </div>
         </section>

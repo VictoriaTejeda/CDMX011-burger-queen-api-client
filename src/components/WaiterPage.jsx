@@ -69,7 +69,7 @@ export const WaiterPage = () => {
             className="name-input"
             type="text"
             placeholder="Nombre completo"
-            pattern="[a-z]{3,15}"
+            pattern="[a-z]{1,15}"
             onBlur={(event) => setClient(event.target.value)}
             required
           />
