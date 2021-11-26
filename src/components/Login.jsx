@@ -27,7 +27,7 @@ export const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate('order');
+        navigate('waiter');
         // ...
       })
       .catch(() => {

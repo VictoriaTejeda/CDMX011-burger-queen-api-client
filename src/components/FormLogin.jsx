@@ -9,12 +9,13 @@ export const FormLogin = ({ handleLogin }) => {
 
   return (
     <>
-      <form>
+      <form >
         <h3>Correo Electrónico:</h3>
         <input
           type="email"
-          placeholder="ejemplo@burgerqueen.com" pattern=".+@burgerqueen\.com" size="30" required
+          placeholder="ejemplo@burgerqueen.com" pattern=".+@burgerqueen\.com" size="30" 
           onChange={handleEmail}
+          required
         />
         <h3>Password:</h3>
         <input
@@ -26,7 +27,7 @@ export const FormLogin = ({ handleLogin }) => {
         />
         <br />
       </form>
-      <button onClick={(e) => { e.preventDefault(); handleLogin(email, pass); }}> Entrar </button>
+      <button onClick={() => {handleLogin(email, pass); }}> Entrar </button>
 
     </>
   );
