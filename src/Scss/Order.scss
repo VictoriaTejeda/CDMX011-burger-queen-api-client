@@ -16,7 +16,7 @@ $breakpoint-lg: 1800px;
     @media (max-width: $breakpoint-sm) { @content; }
   }
   @else if $media == md {
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg)and (orientation: landscape){ @content; }
+    @media (min-width: $breakpoint-md)and (orientation: landscape){ @content; }
   }
 }
 
@@ -215,7 +215,12 @@ $breakpoint-lg: 1800px;
 
   font-size: 1.9vh;
 }
-.confirm:hover{
+.confirm:disabled{
+  background: #9248455d;
+  border: 3px solid #92484586;
+  box-shadow: 0px 4px 4px rgba(10, 10, 10, 0.308);
+}
+.confirm:active{
   background: #924845;
   border: 3px solid #92484586;
 }
@@ -231,6 +236,9 @@ $breakpoint-lg: 1800px;
   color: #fafcac;
   outline:none;
   padding: .5vh;
+  width: 25vh;
+  height:3vh ;
+  font-size: 2.5vh;
 }
 
 .items{

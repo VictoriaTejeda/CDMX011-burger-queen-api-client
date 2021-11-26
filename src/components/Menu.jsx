@@ -12,7 +12,7 @@ export const Menu = (props) => {
   let date = new Date();
   const [orderProducts, setOrderProducts] = useState([]);
   const [db, setDb] = useState([]);
-
+  const [ disabledBtn, setDisabledBtn]=useState(true);
 
   const order = {
     waiter: user.email,
@@ -24,6 +24,12 @@ export const Menu = (props) => {
 
   let api = helpHttp();
   let url = "http://localhost:5000/orders";
+
+  const removeOrder= () => {
+    
+    setOrderProducts([]);
+
+  }
 
   const createOrder = (data) => {
     Swal.fire({
@@ -43,7 +49,6 @@ export const Menu = (props) => {
         };
 
         api.post(url, options).then((res) => {
-          console.log(res);
           if (!res.err) {
             setDb([...db, res])
           } else {
@@ -53,13 +58,10 @@ export const Menu = (props) => {
         Swal.fire(
           'Envio realizado con éxito',
         )
-      
-      } else {
-        Swal.fire(
-          'Envío cancelado')
+        removeOrder()
+        setDisabledBtn(true)
       }
     })
-    console.log(data);
   };
 
   const getProducts = (product) => {
@@ -75,6 +77,7 @@ export const Menu = (props) => {
     } else {
       setOrderProducts([...orderProducts, { ...product, quantity: 1 }]);
     }
+    setDisabledBtn(false)
   };
 
   const addOrderProduct = (OrderProduct) => {
@@ -96,6 +99,7 @@ export const Menu = (props) => {
     const productExist = orderProducts.find((p) => p.id === product.id);
     if (productExist.quantity === 1) {
       setOrderProducts(orderProducts.filter((p) => p.id !== product.id));
+      setDisabledBtn(true)
     } else {
       setOrderProducts(
         orderProducts.map((p) =>
@@ -105,6 +109,7 @@ export const Menu = (props) => {
         )
       );
     }
+    
   };
 
   const itemsPrice = orderProducts.reduce(
@@ -126,7 +131,7 @@ export const Menu = (props) => {
           ))}
         </section>
         <section className="orden">
-          <h2>Orden de: {client}</h2>
+          <h2>Orden de: {client?client:"Favor de ingresar un nombre"}</h2>
           <div>
             {orderProducts.map((op) => (
               <div className="comanda" key={op.id}>
@@ -157,8 +162,8 @@ export const Menu = (props) => {
             Total: $ {itemsPrice}
             <button
               className="confirm"
+              disabled={disabledBtn}
               onClick={() => {
-                console.log(order);
                 createOrder(order)
               }}
             >
