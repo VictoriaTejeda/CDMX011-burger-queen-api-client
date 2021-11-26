@@ -59,6 +59,7 @@ export const WaiterPage = () => {
     return data.filter((p) => p.type == menu);
   };
 
+    
   return (
     <>
       <div className="wrap-logo">
@@ -69,10 +70,9 @@ export const WaiterPage = () => {
             className="name"
             type="text"
             placeholder="Nombre completo"
-            pattern="[a-z]{3,15}"
             onBlur={(event) => setClient(event.target.value)}
             required
-          />
+          ></input>
         </div>
         {auth ? (
           <div>

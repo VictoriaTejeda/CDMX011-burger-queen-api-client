@@ -16,7 +16,7 @@ $breakpoint-lg: 1800px;
     @media (max-width: $breakpoint-sm) { @content; }
   }
   @else if $media == md {
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg)and (orientation: landscape){ @content; }
+    @media (min-width: $breakpoint-md)and (orientation: landscape){ @content; }
   }
 }
 
