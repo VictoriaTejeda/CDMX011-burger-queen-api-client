@@ -17,7 +17,7 @@ export const WaiterPage = () => {
   const [data, setData] = useState([]);
 
   let api = helpHttp();
-  let url = "http://localhost:5000/products";
+  let url = "https://burger-q-a6.herokuapp.com/products";
 
   useEffect(() => {
     api.get(url).then((res) => {

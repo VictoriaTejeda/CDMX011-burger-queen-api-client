@@ -12,7 +12,7 @@ export const Menu = (props) => {
   let date = new Date();
   const [orderProducts, setOrderProducts] = useState([]);
   const [db, setDb] = useState([]);
-  const [ disabledBtn, setDisabledBtn]=useState(true);
+  const [disabledBtn, setDisabledBtn] = useState(true);
 
   const order = {
     waiter: user.email,
@@ -23,10 +23,10 @@ export const Menu = (props) => {
   };
 
   let api = helpHttp();
-  let url = "http://localhost:5000/orders";
+  let url = "https://burger-q-a6.herokuapp.com/orders";
 
-  const removeOrder= () => {
-    
+  const removeOrder = () => {
+
     setOrderProducts([]);
 
   }
@@ -109,7 +109,7 @@ export const Menu = (props) => {
         )
       );
     }
-    
+
   };
 
   const itemsPrice = orderProducts.reduce(
@@ -131,7 +131,7 @@ export const Menu = (props) => {
           ))}
         </section>
         <section className="orden">
-          <h2>Orden de: {client?client:"Favor de ingresar un nombre"}</h2>
+          <h2>Orden de: {client ? client : "Favor de ingresar un nombre"}</h2>
           <div>
             {orderProducts.map((op) => (
               <div className="comanda" key={op.id}>
