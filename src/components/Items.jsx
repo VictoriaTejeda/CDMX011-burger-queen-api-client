@@ -13,7 +13,7 @@ export const Items = (props) => {
     return (
         <div className="card">
             <p>{product.name}</p>
-            <p className="price">${product.price}</p>
+            <p className="price">$ {product.price}</p>
             <p><button onClick={() => {
                 addProduct(product);
             }}>Agregar</button></p>
