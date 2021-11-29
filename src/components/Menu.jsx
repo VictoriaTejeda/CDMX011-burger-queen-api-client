@@ -30,7 +30,7 @@ export const Menu = (props) => {
     setOrderProducts([]);
 
   }
-
+  
   const createOrder = (data) => {
     Swal.fire({
       title: 'Enviar comanda',
@@ -99,7 +99,7 @@ export const Menu = (props) => {
     const productExist = orderProducts.find((p) => p.id === product.id);
     if (productExist.quantity === 1) {
       setOrderProducts(orderProducts.filter((p) => p.id !== product.id));
-      setDisabledBtn(true)
+      orderProducts.splice(0,1)
     } else {
       setOrderProducts(
         orderProducts.map((p) =>
@@ -109,14 +109,19 @@ export const Menu = (props) => {
         )
       );
     }
-    
+    console.log(orderProducts);
+    if(orderProducts.length===0){
+      setDisabledBtn(true)
+    }
   };
+   
 
   const itemsPrice = orderProducts.reduce(
     (a, c) => a + c.price * c.quantity,
     0
   );
 
+ 
   return (
     <div>
       <div className="menu-wrap">
