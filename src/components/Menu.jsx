@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { Items } from "./Items";
+import { Products } from "./Products";
 import { helpHttp } from "../helpers/helpHttp";
 import { getAuth } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -14,16 +14,9 @@ export const Menu = (props) => {
   const [db, setDb] = useState([]);
   const [disabledBtn, setDisabledBtn] = useState(true);
 
-  const order = {
-    waiter: user.email,
-    clientName: client,
-    status: "pending",
-    orderProducts,
-    date: date.toLocaleString(),
-  };
 
   let api = helpHttp();
-  let url = "http://localhost:5000/products";
+  let url = "http://localhost:5000/orders";
 
   const removeOrder = () => {
 
@@ -121,20 +114,19 @@ export const Menu = (props) => {
     0
   );
 
+  const order = {
+    waiter: user.email,
+    clientName: client,
+    status: "pending",
+    orderProducts,
+    date: date.toLocaleString(),
+    total: itemsPrice
+  };
 
   return (
     <div>
       <div className="menu-wrap">
-        <section className="items">
-
-          {products.map((product) => (
-            <Items
-              product={product}
-              key={product.id}
-              sendProducts={getProducts}
-            ></Items>
-          ))}
-        </section>
+        <Products product={products} getProducts={getProducts} />
         <section className="orden">
           <h2>Orden de: {client ? client : "Favor de ingresar un nombre"}</h2>
           <div>
