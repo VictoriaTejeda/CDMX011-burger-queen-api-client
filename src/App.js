@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -8,14 +8,16 @@ import { Login } from './components/Login';
 import { WaiterPage } from './components/WaiterPage';
 import { PrivateRoute } from '../src/components/PrivateRoute'
 import { ErrorPage } from './components/ErrorPage';
+import { KitchenPage } from './components/kitchen/kitchenPage';
 
 function App() {
-  const { isLoggedIn } = useState(false)
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="waiter" element={<PrivateRoute> <WaiterPage isLoggedIn={isLoggedIn} /></PrivateRoute>} />
+        <Route path="waiter" element={<PrivateRoute> <WaiterPage  /></PrivateRoute>} />
+        <Route path="kitchen" element={ <KitchenPage  />} />
         <Route path="*" element={< ErrorPage/>} />
       </Routes>
     </BrowserRouter>

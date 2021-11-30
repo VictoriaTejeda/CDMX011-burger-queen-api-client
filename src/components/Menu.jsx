@@ -23,7 +23,7 @@ export const Menu = (props) => {
   };
 
   let api = helpHttp();
-  let url = "https://burger-q-a6.herokuapp.com/orders";
+  let url = "http://localhost:5000/products";
 
   const removeOrder = () => {
 
