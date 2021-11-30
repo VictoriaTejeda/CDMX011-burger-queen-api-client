@@ -12,6 +12,7 @@ import { KitchenPage } from './components/kitchen/kitchenPage';
 
 function App() {
 
+
   return (
     <BrowserRouter>
       <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path="waiter" element={<PrivateRoute> <WaiterPage  /></PrivateRoute>} />
         <Route path="kitchen" element={ <KitchenPage  />} />
         <Route path="*" element={< ErrorPage/>} />
+
       </Routes>
     </BrowserRouter>
   );
