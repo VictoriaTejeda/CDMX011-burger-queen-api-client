@@ -19,13 +19,18 @@ export const KitchenPage = () => {
     });
   }, []);
   console.log(data);
+
+  data.sort(function (a, b) {
+    return b.id - a.id;
+  });
+
+
   return (
     <div>
       <h1> Cocina </h1>
       <section className="items">
-        
-            <div className="render-menu">{data && <Command products={data} />}</div>
-        </section>
+        <div className="render-menu">{data && <Command products={data} />}</div>
+      </section>
     </div>
   );
 };
