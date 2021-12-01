@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { helpHttp } from "../../helpers/helpHttp";
 import { Command } from "./Command";
+import { logOut, auth } from "../../firebaseconfig";
+import logo from "../../assets/logo.png";
+import cerrar from "../../assets/cerrar.png";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
+import "../../Scss/kitchen.scss"
 
 export const KitchenPage = () => {
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
+  const [setError] = useState("");
   let api = helpHttp();
   let url = "http://localhost:5000/orders";
 
@@ -24,13 +31,52 @@ export const KitchenPage = () => {
     return b.id - a.id;
   });
 
+  const handleSignOut = () => {
+    try {
+      Swal.fire({
+        title: "¿Desea Cerrar sesión?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#c93c00",
+        cancelButtonColor: "#e7aa2b",
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        width: "50vh",
+        heightAuto: "true",
+        position: "center",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          logOut(auth);
+          navigate("/");
+        }
+      });
+    } catch (error) {
+      setError("Error del servidor");
+      console.log(error);
+    }
+  };
 
   return (
-    <div>
-      <h1> Cocina </h1>
-      <section className="items">
-        <div className="render-menu">{data && <Command products={data} />}</div>
-      </section>
-    </div>
+    <><div className="wrap-logo">
+      <img src={logo} alt="logo-img" className="logo-order" />
+      {auth ? (
+        <div>
+          <img
+            src={cerrar}
+            alt="exit"
+            className="cerrar"
+            onClick={() => {
+              handleSignOut(auth);
+            } } />
+        </div>
+      ) : (
+        navigate("/")
+      )}
+    </div><div>
+        <h1 className="welcome"> Bienvenido a Cocina </h1>
+        <section className="items">
+          <div className="render-menu">{data && <Command products={data} />}</div>
+        </section>
+      </div></>
   );
 };

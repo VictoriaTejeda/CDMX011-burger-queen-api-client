@@ -1,0 +1,96 @@
+$font-family: "Nunito Sans", sans-serif;
+$font-color1: #fafcac;
+$font-color2: #ffa427;
+$font-color3: #c93c00;
+$font-color4: #cccf4a;
+$base-color: #e7aa2b;
+$secund-color: #ffa52710;
+$border-color: #c93c00;
+
+$breakpoint-sm: 767px;
+$breakpoint-md: 1000px;
+$breakpoint-lg: 1800px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $breakpoint-md) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+%font {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 2.3vh;
+}
+
+.welcome {
+  margin-left: 2vh;
+  color: $font-color2;
+}
+
+.card-cocina {
+  background-color: none;
+  border: #e7aa2b;
+  border-style: solid;
+  border-width: thick;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  margin: 3vmin;
+  
+
+  button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: #cccf4a;
+    background-color: #e7aa2b;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "Nunito Sans", sans-serif;
+    color: #000000;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: #c93c00c4;
+    color: rgb(0, 0, 0);
+  }
+  p {
+    padding: 1.5vmax;
+    font-size: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    color: #fafcac;
+  }
+  @include media(md) {
+    width: 190px;
+  }
+
+  ul{
+    padding: 1.5vmax;
+    font-size: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    color:$font-color4;
+    
+  }
+  li{
+    margin-left: 2vh;
+    
+  }
+  .status{
+    color:violet;
+    font-size: 3vh;
+}
+
+}
+

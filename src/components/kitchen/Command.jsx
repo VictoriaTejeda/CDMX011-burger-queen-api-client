@@ -37,10 +37,9 @@ export const Command = (props) => {
 
   return (
     <>
-      <h1> comanda</h1>
       <section>
         {products.map((op) => (
-          <div className="card" key={op.id}>
+          <div className="card-cocina" key={op.id}>
             <p>{op.clientName}</p>
             <div>
               {" "}
@@ -52,7 +51,7 @@ export const Command = (props) => {
                 </ul>
               ))}
             </div>
-            <p>{op.status}</p>
+            <p className="status">{op.status}</p>
             <p>{op.date}</p>
             <p>{op.waiter}</p>
             <button
