@@ -13,10 +13,13 @@ $breakpoint-lg: 1800px;
 
 @mixin media($media) {
   @if $media == xs {
-    @media (max-width: $breakpoint-sm) { @content; }
-  }
-  @else if $media == md {
-    @media (min-width: $breakpoint-md)and (orientation: landscape){ @content; }
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $breakpoint-md) and (orientation: landscape) {
+      @content;
+    }
   }
 }
 
@@ -31,9 +34,9 @@ $breakpoint-lg: 1800px;
   margin-bottom: 1vh;
   width: 20vh;
 }
-.cerrar{
+.cerrar {
   width: 8vh;
-  margin-right:3vh;
+  margin-right: 3vh;
   margin-bottom: 6vh;
 }
 
@@ -58,9 +61,8 @@ $breakpoint-lg: 1800px;
   @include media(md) {
     margin-left: 6vh;
     width: 18vh;
-    height:5vh;
+    height: 5vh;
   }
-  
 }
 
 .btn-menu:active {
@@ -69,7 +71,7 @@ $breakpoint-lg: 1800px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .btn-menu:hover {
-  background: #8C605E;
+  background: #8c605e;
   border: 3px solid #8c605e;
   color: #ffa427;
 }
@@ -87,21 +89,20 @@ $breakpoint-lg: 1800px;
   align-items: center;
 }
 .card {
-  background-color: none;
+  background-color: #e7ab2b3a;
   border: #e7aa2b;
-  border-style:solid;
+  border-style: solid;
   border-width: thick;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 220px;
   margin: 3vmin;
   text-align: center;
 
-  
   button {
     border: none;
     outline: 0;
     padding: 12px;
-    color:#cccf4a;
+    color: #cccf4a;
     background-color: #e7aa2b;
     text-align: center;
     cursor: pointer;
@@ -109,35 +110,37 @@ $breakpoint-lg: 1800px;
     font-size: 18px;
     font-family: "Nunito Sans", sans-serif;
     color: #000000;
-    font-weight:bold;
+    font-weight: bold;
   }
 
   button:hover {
     background-color: #c93c00c4;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
   }
-  p{
+  p {
     padding: 1.5vmax;
     font-size: 20px;
     font-family: "Nunito Sans", sans-serif;
-    margin:0;
-    color:#fafcac;
+    margin: 0;
+    color: #fafcac;
   }
   @include media(md) {
     width: 190px;
   }
-
+  .img-item {
+    width: 5vmax;
+  }
 }
 
 .price {
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   font-size: 25px;
   margin: 0;
 }
 
 .orden {
   border: #cccf4a;
-  border-style:solid;
+  border-style: solid;
   border-width: thick;
   width: 50%;
   margin-right: 4vh;
@@ -145,18 +148,17 @@ $breakpoint-lg: 1800px;
   position: -webkit-sticky;
   position: sticky;
   top: 15vh;
-  
 
-  h2{
+  h2 {
     margin-top: 0%;
     margin-bottom: 1.2vh;
     border-bottom: $base-color;
     background-color: #cccf4a;
     font-size: 20px;
     font-family: "Nunito Sans", sans-serif;
-    padding: .5vh;
+    padding: 0.5vh;
   }
-  
+
   @include media(md) {
     width: 40%;
   }
@@ -165,49 +167,46 @@ $breakpoint-lg: 1800px;
 .comanda {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 
   p {
     color: #fafcac;
     font-size: 2vh;
     margin: 5px;
-   
   }
 
   button {
     margin: 5px;
     background-color: $font-color3;
     border-radius: 50%;
-    border:none;
+    border: none;
     width: 30px;
-    height:30px;
-    font-size:2vh;
-    color:$font-color1;
+    height: 30px;
+    font-size: 2vh;
+    color: $font-color1;
   }
+}
 
-}   
-
-.total{
+.total {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top:3px solid #cccf4a;
-  padding-top:1vh;
+  border-top: 3px solid #cccf4a;
+  padding-top: 1vh;
   color: #c93c00;
   border-width: medium;
   font-size: 2.5vh;
   @extend %font;
   padding-left: 1vh;
-
 }
-.confirm{
+.confirm {
   background: #8c605e;
   border: 3px solid #8c605e;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(168, 161, 120, 0.308);
   border-radius: 30px;
-  color:$font-color1;
+  color: $font-color1;
   width: 20vh;
   height: 4vh;
   margin: 1.5vmin;
@@ -215,33 +214,33 @@ $breakpoint-lg: 1800px;
 
   font-size: 1.9vh;
 }
-.confirm:disabled{
+.confirm:disabled {
   background: #9248455d;
   border: 3px solid #92484586;
   box-shadow: 0px 4px 4px rgba(10, 10, 10, 0.308);
 }
-.confirm:active{
+.confirm:active {
   background: #924845;
   border: 3px solid #92484586;
 }
 
-.name{
+.name {
   @extend %font;
-  color:$font-color2;
+  color: $font-color2;
 }
-.name-input{
-  background-color:#8c605e8e ;
+.name-input {
+  background-color: #8c605e8e;
   border: 3px solid #8c605e00;
   border-radius: 10px;
   color: #fafcac;
-  outline:none;
-  padding: .5vh;
+  outline: none;
+  padding: 0.5vh;
   width: 25vh;
-  height:3vh ;
+  height: 3vh;
   font-size: 2.5vh;
 }
 
-.items{
+.items {
   @include media(md) {
     width: 50%;
     display: flex;
@@ -250,15 +249,15 @@ $breakpoint-lg: 1800px;
   }
 }
 
-.waiter{
+.waiter {
   float: right;
   margin-right: 3vh;
-  color:#8c605e;
+  color: #8c605e;
   @extend %font;
   position: -webkit-sticky;
   position: sticky;
- bottom: 2.5vh;
- @include media(md) {
-  margin-right: 6vh;
-}
+  bottom: 2.5vh;
+  @include media(md) {
+    margin-right: 6vh;
+  }
 }
