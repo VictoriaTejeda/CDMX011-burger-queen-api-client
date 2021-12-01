@@ -3,41 +3,60 @@ import React from "react";
 import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent  } from "@testing-library/react";
 import { Items } from "../components/Items";
+import { Products } from "../components/Products";
 import { Data } from "./DataMock"
 
 test('renders content', () => {
   console.log(Data)
   const mockProducts=Data.products;
-
+  const mockGetProduct= jest.fn()
   
-  const component = render(mockProducts.map((product)=><Items product={product}
-    key={product.id}
-    />))
+  const component = render(<Products product={mockProducts} getProducts={mockGetProduct} />)
 
   component.debug()
-  component.getByText("Café americano")
+  component.findByText("Café americano")
   component.findByText("$ 5")
-  component.getByText("Jugo de Naranja")
+  component.findByText("Jugo de Naranja")
   component.findByText("$ 7")
-  component.getByText("Café con leche")
+  component.findByText("Café con leche")
   component.findByText("$ 10")
-  component.getByText("Hamburguesa doble")
+  component.findByText("Hamburguesa doble")
   component.findByText("$ 15")
 })
 
-test('clicking the button Agregar', async () => {
+//test('clicking the button Agregar', async () => {
   
-  const mockProducts=Data.products;
+//  //const mockProducts=Data.products;
+
+//  //const mockGetProduct= jest.fn()
+//  //const component = render(mockProducts.map((product)=><Items product={product}
+//  //  key={product.id}  sendProducts={mockGetProduct}
+//  //  />))
+
+//  //    const button=component.getAllByRole('button')
+//  //    button.forEach((x)=>fireEvent.click(x))
+
+//  //    expect(mockGetProduct).toHaveBeenCalledTimes(6)
+//})
+
+test('clicking the button Agregar',() => {
+  
+  const doomyData={
+    id:"1",
+    name:"Café americano",
+    price:"5",
+    type:"desayuno"
+  }
 
   const mockGetProduct= jest.fn()
-  const component = render(mockProducts.map((product)=><Items product={product}
-    key={product.id}  sendProducts={mockGetProduct}
-    />))
 
-      const button=component.getAllByRole('button')
-      button.forEach((x)=>fireEvent.click(x))
+  const component = render(<Items product={doomyData} sendProducts={mockGetProduct}></Items>)
 
-      expect(mockGetProduct).toHaveBeenCalledTimes(6)
+    component.debug()
+  const button=component.getByText('Agregar')
+  fireEvent.click(button)
+  expect(mockGetProduct).toHaveBeenCalledTimes(1)
+  
 })
 
 
