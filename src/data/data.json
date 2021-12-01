@@ -139,7 +139,7 @@
     {
       "waiter": "armando_cocina@burgerqueen.com",
       "clientName": "sofia",
-      "status": "pending",
+      "status": "listo",
       "orderProducts": [
         {
           "id": 1,
