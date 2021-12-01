@@ -89,10 +89,10 @@ $breakpoint-lg: 1800px;
   align-items: center;
 }
 .card {
-  background-color: #e7ab2b3a;
-  border: #e7aa2b;
+  background-color: #8c605e81;
+  border: #ffa427;
   border-style: solid;
-  border-width: thick;
+  border-width: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 220px;
   margin: 3vmin;
@@ -103,7 +103,7 @@ $breakpoint-lg: 1800px;
     outline: 0;
     padding: 12px;
     color: #cccf4a;
-    background-color: #e7aa2b;
+    background-color: #ffa427;
     text-align: center;
     cursor: pointer;
     width: 100%;

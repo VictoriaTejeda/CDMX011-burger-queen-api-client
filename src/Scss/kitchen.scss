@@ -29,20 +29,38 @@ $breakpoint-lg: 1800px;
   font-size: 2.3vh;
 }
 
+
 .welcome {
   margin-left: 2vh;
   color: $font-color2;
 }
 
+.wrap-command{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+}
 .card-cocina {
   background-color: none;
   border: #e7aa2b;
   border-style: solid;
   border-width: thick;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 350px;
-  margin: 3vmin;
-  
+  max-width: 300px;
+  margin: 1vmin;
+  .waiterMail{
+    
+    @include media(md) {
+      font-size: 16px;
+      
+    }
+  }
+  @include media(md) {
+    width: 300px;
+    
+  }
 
   button {
     border: none;
@@ -71,9 +89,7 @@ $breakpoint-lg: 1800px;
     margin: 0;
     color: #fafcac;
   }
-  @include media(md) {
-    width: 190px;
-  }
+  
 
   ul{
     padding: 1.5vmax;

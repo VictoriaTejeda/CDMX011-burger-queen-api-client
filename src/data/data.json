@@ -4,73 +4,84 @@
       "id": 1,
       "name": "Café americano",
       "price": 5,
-      "image":"https://cdn-icons-png.flaticon.com/128/751/751621.png",
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/cafe.png",
       "type": "desayuno"
     },
     {
       "id": 2,
       "name": "Jugo de Naranja",
       "price": 7,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/jugo.png",
       "type": "desayuno"
     },
     {
       "id": 3,
       "name": "Café con leche",
       "price": 10,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/leche.png",
       "type": "desayuno"
     },
     {
       "id": 4,
       "name": "Sandwich de jamón y queso",
       "price": 7,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sandwich.png",
       "type": "desayuno"
     },
     {
       "id": 5,
       "name": "Hamburguesa simple",
       "price": 10,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
       "type": "comida"
     },
     {
       "id": 6,
       "name": "Hamburguesa doble",
       "price": 15,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/doble.png",
       "type": "comida"
     },
     {
       "id": 7,
       "name": "Papas fritas",
       "price": 5,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/papas.png",
       "type": "comida"
     },
     {
       "id": 8,
       "name": "Aros de cebolla",
       "price": 5,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
       "type": "comida"
     },
     {
       "id": 9,
       "name": "Agua 500ml",
       "price": 5,
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/agua.png",
       "type": "comida"
     },
     {
       "id": 10,
       "name": "Agua 750ml",
       "price": 7,
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/agua.png",
       "type": "comida"
     },
     {
       "id": 11,
       "name": "Bebida/gaseosa 500ml",
       "price": 7,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
       "type": "comida"
     },
     {
       "id": 12,
       "name": "Bebida/gaseosa 750ml",
       "price": 10,
+      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
       "type": "comida"
     }
   ],

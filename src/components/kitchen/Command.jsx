@@ -37,7 +37,7 @@ export const Command = (props) => {
 
   return (
     <>
-      <section>
+      <section >
         {products.map((op) => (
           <div className="card-cocina" key={op.id}>
             <p>{op.clientName}</p>
@@ -53,7 +53,7 @@ export const Command = (props) => {
             </div>
             <p className="status">{op.status}</p>
             <p>{op.date}</p>
-            <p>{op.waiter}</p>
+            <p className="waiterMail">{op.waiter}</p>
             <button
               onClick={() => {
                 updateOrder(op);

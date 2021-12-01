@@ -74,7 +74,7 @@ export const KitchenPage = () => {
       )}
     </div><div>
         <h1 className="welcome"> Bienvenido a Cocina </h1>
-        <section className="items">
+        <section className="wrap-command">
           <div className="render-menu">{data && <Command products={data} />}</div>
         </section>
       </div></>
