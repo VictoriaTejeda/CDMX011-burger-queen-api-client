@@ -37,7 +37,7 @@ export const Command = (props) => {
 
   return (
     <>
-      <section >
+      <section className='wrap-command' >
         {products.map((op) => (
           <div className="card-cocina" key={op.id}>
             <p>{op.clientName}</p>
