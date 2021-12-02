@@ -4,56 +4,56 @@
       "id": 1,
       "name": "Café americano",
       "price": 5,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/cafe.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/cafe.png",
       "type": "desayuno"
     },
     {
       "id": 2,
       "name": "Jugo de Naranja",
       "price": 7,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/jugo.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/jugo.png",
       "type": "desayuno"
     },
     {
       "id": 3,
       "name": "Café con leche",
       "price": 10,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/leche.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/leche.png",
       "type": "desayuno"
     },
     {
       "id": 4,
       "name": "Sandwich de jamón y queso",
       "price": 7,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sandwich.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sandwich.png",
       "type": "desayuno"
     },
     {
       "id": 5,
       "name": "Hamburguesa simple",
       "price": 10,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
       "type": "comida"
     },
     {
       "id": 6,
       "name": "Hamburguesa doble",
       "price": 15,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/doble.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/doble.png",
       "type": "comida"
     },
     {
       "id": 7,
       "name": "Papas fritas",
       "price": 5,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/papas.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/papas.png",
       "type": "comida"
     },
     {
       "id": 8,
       "name": "Aros de cebolla",
       "price": 5,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
       "type": "comida"
     },
     {
@@ -74,165 +74,43 @@
       "id": 11,
       "name": "Bebida/gaseosa 500ml",
       "price": 7,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
       "type": "comida"
     },
     {
       "id": 12,
       "name": "Bebida/gaseosa 750ml",
       "price": 10,
-      "image":"https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
+      "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
       "type": "comida"
     }
   ],
   "orders": [
     {
       "waiter": "luis_mesero@burgerqueen.com",
-      "clientName": "Jorge ",
+      "clientName": "Alma",
       "status": "pending",
-      "orderProducts": [
-        {
-          "id": 3,
-          "name": "Café con leche",
-          "price": 10,
-          "type": "desayuno",
-          "quantity": 1
-        },
-        {
-          "id": 4,
-          "name": "Sandwich de jamón y queso",
-          "price": 7,
-          "type": "desayuno",
-          "quantity": 1
-        },
-        {
-          "id": 2,
-          "name": "Jugo de Naranja",
-          "price": 7,
-          "type": "desayuno",
-          "quantity": 1
-        }
-      ],
-      "date": "30/11/2021 10:20:28",
-      "total": 24,
-      "id": 1
-    },
-    {
-      "waiter": "luis_mesero@burgerqueen.com",
-      "clientName": "Camila",
-      "status": "listo",
-      "orderProducts": [
-        {
-          "id": 6,
-          "name": "Hamburguesa doble",
-          "price": 15,
-          "type": "comida",
-          "quantity": 1
-        },
-        {
-          "id": 9,
-          "name": "Agua 500ml",
-          "price": 5,
-          "type": "comida",
-          "quantity": 1
-        },
-        {
-          "id": 7,
-          "name": "Papas fritas",
-          "price": 5,
-          "type": "comida",
-          "quantity": 1
-        }
-      ],
-      "date": "30/11/2021 10:20:51",
-      "total": 25,
-      "id": 2
-    },
-    {
-      "waiter": "armando_cocina@burgerqueen.com",
-      "clientName": "sofia",
-      "status": "listo",
       "orderProducts": [
         {
           "id": 1,
           "name": "Café americano",
           "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/cafe.png",
           "type": "desayuno",
           "quantity": 1
         },
-        {
-          "id": 4,
-          "name": "Sandwich de jamón y queso",
-          "price": 7,
-          "type": "desayuno",
-          "quantity": 1
-        }
-      ],
-      "date": "30/11/2021 12:37:44",
-      "total": 12,
-      "id": 3
-    },
-    {
-      "waiter": "armando_cocina@burgerqueen.com",
-      "clientName": "Nancy",
-      "status": "listo",
-      "orderProducts": [
         {
           "id": 2,
           "name": "Jugo de Naranja",
           "price": 7,
-          "type": "desayuno",
-          "quantity": 1
-        },
-        {
-          "id": 3,
-          "name": "Café con leche",
-          "price": 10,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/jugo.png",
           "type": "desayuno",
           "quantity": 1
         }
       ],
-      "date": "1/12/2021 10:38:50",
-      "total": 17,
-      "id": 4
-    },
-    {
-      "waiter": "armando_cocina@burgerqueen.com",
-      "clientName": "Ana karina",
-      "status": "listo",
-      "orderProducts": [
-        {
-          "id": 5,
-          "name": "Hamburguesa simple",
-          "price": 10,
-          "type": "comida",
-          "quantity": 1
-        },
-        {
-          "id": 8,
-          "name": "Aros de cebolla",
-          "price": 5,
-          "type": "comida",
-          "quantity": 1
-        },
-        {
-          "id": 6,
-          "name": "Hamburguesa doble",
-          "price": 15,
-          "type": "comida",
-          "quantity": 1
-        },
-        {
-          "id": 7,
-          "name": "Papas fritas",
-          "price": 5,
-          "type": "comida",
-          "quantity": 1
-        }
-      ],
-      "date": "1/12/2021 10:58:26",
-      "total": 35,
-      "id": 5
+      "date": "2/12/2021 13:24:47",
+      "total": 12,
+      "id": 1
     }
   ]
 }
