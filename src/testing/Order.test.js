@@ -13,7 +13,7 @@ test('renders content', () => {
   
   const component = render(<Products product={mockProducts} getProducts={mockGetProduct} />)
 
-  component.debug()
+  //component.debug()
   component.findByText("Café americano")
   component.findByText("$ 5")
   component.findByText("Jugo de Naranja")
@@ -56,7 +56,7 @@ test('clicking the button Agregar',() => {
   const button=component.getByText('Agregar')
   fireEvent.click(button)
   expect(mockGetProduct).toHaveBeenCalledTimes(1)
-  
+  expect(mockGetProduct).toHaveBeenCalledWith(doomyData)
 })
 
 
