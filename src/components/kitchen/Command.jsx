@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { helpHttp } from "../../helpers/helpHttp";
+import Swal from "sweetalert2";
+
 export const Command = (props) => {
   let { products } = props;
   console.log("🚀", products);
   const [db, setDb] = useState([]);
+
   //const [data, setData] = useState([]);
 
   let api = helpHttp();
@@ -36,20 +39,31 @@ export const Command = (props) => {
   };
 
   function getMinutesBetweenDates(data) {
-    let endDate = new Date();
-    let llegada= new Date(data.date);
-    console.log(llegada)
-    let result=  Math.abs(endDate-llegada);
-    var minutes = Math.floor((result/1000)/60);
+    const endDate = new Date();
+    
+    console.log(endDate)
+    const startDate= new Date(data.date);
+    console.log(startDate)
+    const result=  endDate-startDate;
+    const minutes =  Math.round(((result % 86400000) % 3600000) / 60000);
     console.log(minutes)
+    const hrs = Math.floor((result % 86400000) / 3600000); // hours
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title:   `El tiempo de preparación fue:  ${hrs}hrs :${minutes} minutos `,
+      showConfirmButton: false,
+      timer: 3000
+    })
 }
 
 
   return (
     <>
-      <section className='wrap-command' >
+      <section className='wrap-command'  >
         {products.map((op) => (
-          <div className="card-cocina" key={op.id}>
+          <div  key={op.id} >
+            <div className="card-cocina" >
             <p>{op.clientName}</p>
             <div>
               {" "}
@@ -78,6 +92,7 @@ export const Command = (props) => {
             >
               Enviar a Mesa
             </button>
+            </div>
           </div>
         ))}
       </section>
