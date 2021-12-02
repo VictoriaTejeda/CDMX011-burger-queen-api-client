@@ -35,6 +35,16 @@ export const Command = (props) => {
     });
   };
 
+  function getMinutesBetweenDates(data) {
+    let endDate = new Date();
+    let llegada= new Date(data.date);
+    console.log(llegada)
+    let result=  Math.abs(endDate-llegada);
+    var minutes = Math.floor((result/1000)/60);
+    console.log(minutes)
+}
+
+
   return (
     <>
       <section className='wrap-command' >
@@ -56,10 +66,17 @@ export const Command = (props) => {
             <p className="waiterMail">{op.waiter}</p>
             <button
               onClick={() => {
+                getMinutesBetweenDates(op);
+              }}
+            >
+              Terminar preparación
+            </button>
+            <button
+              onClick={() => {
                 updateOrder(op);
               }}
             >
-              Finalizar Pedido
+              Enviar a Mesa
             </button>
           </div>
         ))}
