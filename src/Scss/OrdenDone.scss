@@ -1,0 +1,58 @@
+$font-family: "Nunito Sans", sans-serif;
+$font-color1: #fafcac;
+$font-color2: #ffa427;
+$font-color3: #c93c00;
+$font-color4: #cccf4a;
+$base-color: #e7aa2b;
+$secund-color: #ffa52710;
+$border-color: #c93c00;
+
+$breakpoint-sm: 767px;
+$breakpoint-md: 1000px;
+$breakpoint-lg: 1800px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $breakpoint-md) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+%font {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 2.3vh;
+}
+
+.icon-menu{
+    background: $base-color;
+    border: 3px solid #ffa427;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(168, 161, 120, 0.308);
+    border-radius: 50%;
+    color: black;
+    width: 8vh;
+    height: 8vh;
+    margin: 60px;
+    margin-right: 6vh;
+    float: right;
+  
+    .return-menu{
+    width: 7vh;
+    height: 7vh;
+    @include media(md) {
+      width: 10vh;
+      height: 10vh;
+    }
+    }
+  
+    @include media(md) {
+      width: 12vh;
+      height: 12vh;
+    }
+  }

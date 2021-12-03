@@ -6,6 +6,7 @@ import { Menu } from "./Menu";
 import "../../Scss/Order.scss";
 import { helpHttp } from "../../helpers/helpHttp";
 import logo from "../../assets/logo.png";
+import camarero from "../../assets/camarero.png"
 import cerrar from "../../assets/cerrar.png";
 
 export const WaiterPage = () => {
@@ -108,9 +109,14 @@ export const WaiterPage = () => {
         >
           Comida
         </button>
+        <div className= "waiter-order">
+        <img src={camarero} alt="camarero" className="camarero" onClick ={() => {
+            navigate("/waiter/order");
+          }} />
+        </div>
       </div>
       <div className="render-menu">
-        {data && <Menu products={filterProducts()} client={client} />}
+      {data && <Menu products={filterProducts()} client={client} />}
       </div>
       <h3 className="waiter">Usuario: {user.email}</h3>
     </>
