@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png";
 import cerrar from "../../assets/cerrar.png";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-import "../../Scss/kitchen.scss"
+import "../../Scss/kitchen.scss";
 
 export const KitchenPage = () => {
   const [data, setData] = useState([]);
@@ -55,28 +55,36 @@ export const KitchenPage = () => {
       console.log(error);
     }
   };
-
+  const filterStatus = () => {
+    return data.filter((p) => p.status == "pending");
+  };
   return (
-    <><div className="wrap-logo">
-      <img src={logo} alt="logo-img" className="logo-order" />
-      {auth ? (
-        <div>
-          <img
-            src={cerrar}
-            alt="exit"
-            className="cerrar"
-            onClick={() => {
-              handleSignOut(auth);
-            } } />
-        </div>
-      ) : (
-        navigate("/")
-      )}
-    </div><div>
+    <>
+      <div className="wrap-logo">
+        <img src={logo} alt="logo-img" className="logo-order" />
+        {auth ? (
+          <div>
+            <img
+              src={cerrar}
+              alt="exit"
+              className="cerrar"
+              onClick={() => {
+                handleSignOut(auth);
+              }}
+            />
+          </div>
+        ) : (
+          navigate("/")
+        )}
+      </div>
+      <div>
         <h1 className="welcome"> Bienvenido a Cocina </h1>
         <section className="wrap-command">
-          <div className="render-menu">{data && <Command products={data} />}</div>
+          <div className="render-menu">
+            {data && <Command products={filterStatus()} />}
+          </div>
         </section>
-      </div></>
+      </div>
+    </>
   );
 };

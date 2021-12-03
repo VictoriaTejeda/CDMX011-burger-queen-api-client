@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { logOut, auth } from "../firebaseconfig";
+import { logOut, auth } from "../../firebaseconfig";
 import { useNavigate } from "react-router";
 import { Menu } from "./Menu";
-import "../Scss/Order.scss";
-import { helpHttp } from "../helpers/helpHttp";
-import logo from "../assets/logo.png";
-import cerrar from "../assets/cerrar.png";
+import "../../Scss/Order.scss";
+import { helpHttp } from "../../helpers/helpHttp";
+import logo from "../../assets/logo.png";
+import cerrar from "../../assets/cerrar.png";
 
 export const WaiterPage = () => {
   const user = auth.currentUser;

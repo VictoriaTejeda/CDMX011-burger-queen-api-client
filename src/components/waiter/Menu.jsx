@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { Products } from "./Products";
-import { helpHttp } from "../helpers/helpHttp";
+import { Products } from "../waiter/Products";
+import { helpHttp } from "../../helpers/helpHttp";
 import { getAuth } from "firebase/auth";
 import Swal from "sweetalert2";
+import { OrderDone } from "./OrderDone";
 
 export const Menu = (props) => {
   const auth = getAuth();
@@ -14,26 +15,23 @@ export const Menu = (props) => {
   const [db, setDb] = useState([]);
   const [disabledBtn, setDisabledBtn] = useState(true);
 
-
   let api = helpHttp();
   let url = "http://localhost:5000/orders";
 
   const removeOrder = () => {
-
     setOrderProducts([]);
-
-  }
+  };
 
   const createOrder = (data) => {
     Swal.fire({
-      title: 'Enviar comanda',
+      title: "Enviar comanda",
       text: "¿Estás seguro de enviar comanda a cocina?",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: '¡Enviar!',
-      cancelButtonText: 'Cancelar envío'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "¡Enviar!",
+      cancelButtonText: "Cancelar envío",
     }).then((result) => {
       if (result.isConfirmed) {
         let options = {
@@ -43,18 +41,16 @@ export const Menu = (props) => {
 
         api.post(url, options).then((res) => {
           if (!res.err) {
-            setDb([...db, res])
+            setDb([...db, res]);
           } else {
             console.log(res);
           }
-        })
-        Swal.fire(
-          'Envio realizado con éxito',
-        )
-        removeOrder()
-        setDisabledBtn(true)
+        });
+        Swal.fire("Envio realizado con éxito");
+        removeOrder();
+        setDisabledBtn(true);
       }
-    })
+    });
   };
 
   const getProducts = (product) => {
@@ -70,7 +66,7 @@ export const Menu = (props) => {
     } else {
       setOrderProducts([...orderProducts, { ...product, quantity: 1 }]);
     }
-    setDisabledBtn(false)
+    setDisabledBtn(false);
   };
 
   const addOrderProduct = (OrderProduct) => {
@@ -92,7 +88,7 @@ export const Menu = (props) => {
     const productExist = orderProducts.find((p) => p.id === product.id);
     if (productExist.quantity === 1) {
       setOrderProducts(orderProducts.filter((p) => p.id !== product.id));
-      orderProducts.splice(0, 1)
+      orderProducts.splice(0, 1);
     } else {
       setOrderProducts(
         orderProducts.map((p) =>
@@ -104,10 +100,9 @@ export const Menu = (props) => {
     }
     console.log(orderProducts);
     if (orderProducts.length === 0) {
-      setDisabledBtn(true)
+      setDisabledBtn(true);
     }
   };
-
 
   const itemsPrice = orderProducts.reduce(
     (a, c) => a + c.price * c.quantity,
@@ -120,7 +115,7 @@ export const Menu = (props) => {
     status: "pending",
     orderProducts,
     date: date.toLocaleString(),
-    total: itemsPrice
+    total: itemsPrice,
   };
 
   return (
@@ -161,12 +156,15 @@ export const Menu = (props) => {
               className="confirm"
               disabled={disabledBtn}
               onClick={() => {
-                createOrder(order)
+                createOrder(order);
               }}
             >
               Enviar pedido
             </button>
           </div>
+        </section>
+        <section>
+          <OrderDone />
         </section>
       </div>
     </div>

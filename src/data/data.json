@@ -89,7 +89,7 @@
     {
       "waiter": "luis_mesero@burgerqueen.com",
       "clientName": "Alma",
-      "status": "pending",
+      "status": "listo",
       "orderProducts": [
         {
           "id": 1,
@@ -115,7 +115,7 @@
     {
       "waiter": "luis_mesero@burgerqueen.com",
       "clientName": "",
-      "status": "pending",
+      "status": "listo",
       "orderProducts": [
         {
           "id": 1,
@@ -149,7 +149,7 @@
     {
       "waiter": "luis_mesero@burgerqueen.com",
       "clientName": "Sofia",
-      "status": "pending",
+      "status": "listo",
       "orderProducts": [
         {
           "id": 1,

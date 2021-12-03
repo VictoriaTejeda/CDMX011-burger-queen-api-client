@@ -7,7 +7,6 @@ export const Command = (props) => {
   let { products } = props;
   console.log("🚀", products);
   const [db, setDb] = useState([]);
-
   //const [data, setData] = useState([]);
 
   let api = helpHttp();
@@ -40,58 +39,61 @@ export const Command = (props) => {
 
   function getMinutesBetweenDates(data) {
     const endDate = new Date();
-    
-    console.log(endDate)
-    const startDate= new Date(data.date);
-    console.log(startDate)
-    const result=  endDate-startDate;
-    const minutes =  Math.round(((result % 86400000) % 3600000) / 60000);
-    console.log(minutes)
+
+    console.log(endDate);
+    const startDate = new Date(data.date);
+    console.log(startDate);
+    const result = endDate - startDate;
+    const minutes = Math.round(((result % 86400000) % 3600000) / 60000);
+    console.log(minutes);
     const hrs = Math.floor((result % 86400000) / 3600000); // hours
     Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title:   `El tiempo de preparación fue:  ${hrs}hrs :${minutes} minutos `,
+      position: "center",
+      icon: "success",
+      title: `El tiempo de preparación fue:  ${hrs}hrs :${minutes} minutos `,
       showConfirmButton: false,
-      timer: 3000
-    })
-}
-
+      timer: 3000,
+    });
+  }
+  function refreshPage() {
+    window.location.reload();
+  }
 
   return (
     <>
-      <section className='wrap-command'  >
+      <section className="wrap-command">
         {products.map((op) => (
-          <div  key={op.id} >
-            <div className="card-cocina" >
-            <p>{op.clientName}</p>
-            <div>
-              {" "}
-              {op.orderProducts.map((p) => (
-                <ul key={p.id}>
-                  <li>
-                    {p.quantity} {p.name}
-                  </li>
-                </ul>
-              ))}
-            </div>
-            <p className="status">{op.status}</p>
-            <p>{op.date}</p>
-            <p className="waiterMail">{op.waiter}</p>
-            <button
-              onClick={() => {
-                getMinutesBetweenDates(op);
-              }}
-            >
-              Terminar preparación
-            </button>
-            <button
-              onClick={() => {
-                updateOrder(op);
-              }}
-            >
-              Enviar a Mesa
-            </button>
+          <div key={op.id}>
+            <div className="card-cocina">
+              <p>{op.clientName}</p>
+              <div>
+                {" "}
+                {op.orderProducts.map((p) => (
+                  <ul key={p.id}>
+                    <li>
+                      {p.quantity} {p.name}
+                    </li>
+                  </ul>
+                ))}
+              </div>
+              <p className="status">{op.status}</p>
+              <p>{op.date}</p>
+              <p className="waiterMail">{op.waiter}</p>
+              <button
+                onClick={() => {
+                  getMinutesBetweenDates(op);
+                }}
+              >
+                Terminar preparación
+              </button>
+              <button
+                onClick={() => {
+                  updateOrder(op);
+                  refreshPage();
+                }}
+              >
+                Enviar a Mesa
+              </button>
             </div>
           </div>
         ))}

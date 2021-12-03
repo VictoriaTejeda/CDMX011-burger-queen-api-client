@@ -9,11 +9,7 @@ export const Products = (props) => {
     <>
       <section className="items">
         {product.map((p) => (
-          <Items
-            product={p}
-            key={p.id}
-            sendProducts={getProducts}
-          ></Items>
+          <Items product={p} key={p.id} sendProducts={getProducts}></Items>
         ))}
       </section>
       <div></div>
