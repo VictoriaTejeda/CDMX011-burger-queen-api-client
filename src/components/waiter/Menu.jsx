@@ -4,7 +4,6 @@ import { Products } from "../waiter/Products";
 import { helpHttp } from "../../helpers/helpHttp";
 import { getAuth } from "firebase/auth";
 import Swal from "sweetalert2";
-import { OrderDone } from "./OrderDone";
 
 export const Menu = (props) => {
   const auth = getAuth();
@@ -162,9 +161,6 @@ export const Menu = (props) => {
               Enviar pedido
             </button>
           </div>
-        </section>
-        <section>
-          <OrderDone />
         </section>
       </div>
     </div>

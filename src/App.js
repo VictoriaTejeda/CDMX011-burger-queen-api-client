@@ -9,6 +9,7 @@ import { WaiterPage } from './components/waiter/WaiterPage';
 import { PrivateRoute } from '../src/components/PrivateRoute'
 import { ErrorPage } from './components/ErrorPage';
 import { KitchenPage } from './components/kitchen/kitchenPage';
+import { OrderDone } from './components/waiter/OrderDone';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="waiter" element={<PrivateRoute> <WaiterPage  /></PrivateRoute>} />
+        <Route path="waiter/order" element={ <OrderDone />} /> 
         <Route path="kitchen" element={ <KitchenPage  />} />
         <Route path="*" element={< ErrorPage/>} />
 
