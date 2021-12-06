@@ -265,6 +265,100 @@
       "date": "6/12/2021 9:36:01",
       "total": 41,
       "id": 6
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "Lia",
+      "status": "listo",
+      "orderProducts": [
+        {
+          "id": 6,
+          "name": "Hamburguesa doble",
+          "price": 15,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/doble.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 11,
+          "name": "Bebida/gaseosa 500ml",
+          "price": 7,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
+          "type": "comida",
+          "quantity": 1
+        }
+      ],
+      "date": "6/12/2021 12:52:46",
+      "total": 22,
+      "id": 7
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "Piña",
+      "status": "listo",
+      "orderProducts": [
+        {
+          "id": 2,
+          "name": "Jugo de Naranja",
+          "price": 7,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/jugo.png",
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "name": "Sandwich de jamón y queso",
+          "price": 7,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sandwich.png",
+          "type": "desayuno",
+          "quantity": 1
+        }
+      ],
+      "date": "6/12/2021 13:01:11",
+      "total": 14,
+      "id": 8
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "David",
+      "status": "listo",
+      "orderProducts": [
+        {
+          "id": 6,
+          "name": "Hamburguesa doble",
+          "price": 15,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/doble.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Papas fritas",
+          "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/papas.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 8,
+          "name": "Aros de cebolla",
+          "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "name": "Agua 750ml",
+          "price": 7,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/agua.png",
+          "type": "comida",
+          "quantity": 1
+        }
+      ],
+      "date": "6/12/2021 13:03:41",
+      "total": 32,
+      "id": 9
     }
   ]
 }

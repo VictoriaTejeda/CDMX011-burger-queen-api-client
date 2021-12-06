@@ -66,7 +66,7 @@ export const WaiterPage = () => {
       <div className="wrap-logo">
         <img src={logo} alt="logo-img" className="logo-order" />
         <div className="input-client">
-          <h3 className="name">Nombre del cliente:</h3>
+          <p className="name">Ingresar el nombre del cliente para ver el menu</p>
           <input
             className="name-input"
             type="text"
