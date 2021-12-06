@@ -116,13 +116,13 @@ export const Menu = (props) => {
     date: date.toLocaleString(),
     total: itemsPrice,
   };
-
+ 
   return (
     <div>
       <div className="menu-wrap">
         <Products product={products} getProducts={getProducts} />
         <section className="orden">
-          <h2>Orden de: {client ? client : "Favor de ingresar un nombre"}</h2>
+          <h2>Orden de: {client ? client : "Favor de ingresar un nombre"} </h2>
           <div>
             {orderProducts.map((op) => (
               <div className="comanda" key={op.id}>
