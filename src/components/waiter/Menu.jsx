@@ -21,6 +21,9 @@ export const Menu = (props) => {
     setOrderProducts([]);
   };
 
+  function refreshPage() {
+    window.location.reload();
+  }
   const createOrder = (data) => {
     Swal.fire({
       title: "Enviar comanda",
@@ -48,6 +51,7 @@ export const Menu = (props) => {
         Swal.fire("Envio realizado con éxito");
         removeOrder();
         setDisabledBtn(true);
+        refreshPage();
       }
     });
   };
@@ -116,6 +120,7 @@ export const Menu = (props) => {
     date: date.toLocaleString(),
     total: itemsPrice,
   };
+
  
   return (
     <div>

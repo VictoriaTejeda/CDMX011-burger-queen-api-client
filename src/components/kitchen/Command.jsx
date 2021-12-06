@@ -39,18 +39,13 @@ export const Command = (props) => {
 
   function getMinutesBetweenDates(data) {
     const endDate = new Date();
-
-    console.log(endDate);
     const startDate = new Date(data.date);
-    console.log(startDate);
     const result = endDate - startDate;
     const minutes = Math.round(((result % 86400000) % 3600000) / 60000);
-    console.log(minutes);
-    const hrs = Math.floor((result % 86400000) / 3600000); // hours
     Swal.fire({
       position: "center",
       icon: "success",
-      title: `El tiempo de preparación fue:  ${hrs}hrs :${minutes} minutos `,
+      title: `El tiempo de preparación fue:${minutes} minutos `,
       showConfirmButton: false,
       timer: 3000,
     });

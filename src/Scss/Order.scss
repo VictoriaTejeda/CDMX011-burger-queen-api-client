@@ -283,6 +283,7 @@ $breakpoint-lg: 1800px;
 .name {
   @extend %font;
   color: $font-color2;
+  font-weight: 200;
 }
 .name-input {
   background-color: #8c605e8e;
