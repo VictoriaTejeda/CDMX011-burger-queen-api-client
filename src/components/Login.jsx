@@ -16,7 +16,6 @@ export const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         navigate("waiter");
-        console.log(user.email)
       } else {
         navigate("/");
       }

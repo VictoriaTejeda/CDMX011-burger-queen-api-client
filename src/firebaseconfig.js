@@ -23,3 +23,4 @@ export const logOut = () => {
     console.log(error)
   });
 }
+

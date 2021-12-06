@@ -65,7 +65,7 @@ export const WaiterPage = () => {
     <>
       <div className="wrap-logo">
         <img src={logo} alt="logo-img" className="logo-order" />
-        <div>
+        <div className="input-client">
           <h3 className="name">Nombre del cliente:</h3>
           <input
             className="name-input"
@@ -73,11 +73,11 @@ export const WaiterPage = () => {
             placeholder="Nombre completo"
             pattern="[a-z]{1,15}"
             onBlur={(event) => setClient(event.target.value)}
-            required
+            required 
           />
         </div>
         {auth ? (
-          <div>
+          <div className='wrap-icons'>
             <img
               src={cerrar}
               alt="exit"
@@ -86,13 +86,17 @@ export const WaiterPage = () => {
                 handleSignOut(auth);
               }}
             />
+            <img src={camarero} alt="camarero" className="waiter-order" onClick ={() => {
+            navigate("/waiter/order");
+          }} />
           </div>
         ) : (
           navigate("/")
         )}
+        
       </div>
 
-      <div>
+      <div className="wrap-btns">
         <button
           className="btn-menu"
           onClick={() => {
@@ -109,14 +113,9 @@ export const WaiterPage = () => {
         >
           Comida
         </button>
-        <div className= "waiter-order">
-        <img src={camarero} alt="camarero" className="camarero" onClick ={() => {
-            navigate("/waiter/order");
-          }} />
-        </div>
       </div>
       <div className="render-menu">
-      {data && <Menu products={filterProducts()} client={client} />}
+      { client ? data && <Menu products={filterProducts()} client={client} /> : " "}
       </div>
       <h3 className="waiter">Usuario: {user.email}</h3>
     </>
