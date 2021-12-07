@@ -2,8 +2,8 @@
 import React from "react";
 import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent  } from "@testing-library/react";
-import { Items } from "../components/Items";
-import { Products } from "../components/Products";
+import { Items } from "../components/waiter/Items";
+import { Products } from "../components/waiter/Products";
 import { Data } from "./DataMock"
 
 test('renders content', () => {
@@ -23,21 +23,6 @@ test('renders content', () => {
   component.findByText("Hamburguesa doble")
   component.findByText("$ 15")
 })
-
-//test('clicking the button Agregar', async () => {
-  
-//  //const mockProducts=Data.products;
-
-//  //const mockGetProduct= jest.fn()
-//  //const component = render(mockProducts.map((product)=><Items product={product}
-//  //  key={product.id}  sendProducts={mockGetProduct}
-//  //  />))
-
-//  //    const button=component.getAllByRole('button')
-//  //    button.forEach((x)=>fireEvent.click(x))
-
-//  //    expect(mockGetProduct).toHaveBeenCalledTimes(6)
-//})
 
 test('clicking the button Agregar',() => {
   
