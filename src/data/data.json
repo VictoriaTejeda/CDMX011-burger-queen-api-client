@@ -363,7 +363,7 @@
     {
       "waiter": "armando_cocina@burgerqueen.com",
       "clientName": "Renato",
-      "status": "pending",
+      "status": "entregado",
       "orderProducts": [
         {
           "id": 2,
