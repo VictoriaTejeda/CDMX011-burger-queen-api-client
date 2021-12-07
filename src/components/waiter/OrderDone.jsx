@@ -5,8 +5,9 @@ import { helpHttp } from "../../helpers/helpHttp";
 import logo from "../../assets/logo.png";
 import menu from "../../assets/menu.png";
 import "../../Scss/OrdenDone.scss";
+import { CardDone } from "./CardDone";
 
-export const OrderDone = (isLoggedIn) => {
+export const OrderDone = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const user = auth.currentUser;
@@ -27,7 +28,6 @@ export const OrderDone = (isLoggedIn) => {
 
   const waiterEmail = () => {
     if (user) {
-      isLoggedIn;
       const email = user.email;
       setTimeout(() => email, 1000);
       return email;
@@ -35,7 +35,6 @@ export const OrderDone = (isLoggedIn) => {
       console.log("sin usuario");
     }
   };
-  console.log(waiterEmail());
 
   const products = data.filter(
     (p) => p.status == "listo" && p.waiter == waiterEmail()
@@ -45,17 +44,12 @@ export const OrderDone = (isLoggedIn) => {
     console.log("entre a updateOrderFinish");
     let endpoint = `${url}/${products.id}`;
 
-    console.log(endpoint);
-
     let options = {
       body: { status: "entregado" },
       headers: { "content-type": "application/json" },
     };
-    console.log(options);
 
     api.patch(endpoint, options).then((res) => {
-      console.log(res);
-      console.log(options);
       if (!res.err) {
         let newData = db.map((el) => (el.id === products.id ? products : el));
         console.log("🚀:O ", newData);
@@ -67,9 +61,9 @@ export const OrderDone = (isLoggedIn) => {
     });
   };
 
-  function refreshPage() {
-    window.location.reload();
-  }
+  //function refreshPage() {
+  //  window.location.reload();
+  //}
 
   return (
     <>
@@ -89,28 +83,11 @@ export const OrderDone = (isLoggedIn) => {
         <section className="card-done">
           {products.map((op) => (
             <div key={op.id}>
-              <div className="card-cocina">
-                <p>{op.clientName}</p>
-                <div>
-                  {" "}
-                  {op.orderProducts.map((p) => (
-                    <ul key={p.id}>
-                      <li>
-                        {p.quantity} {p.name}
-                      </li>
-                    </ul>
-                  ))}
-                </div>
-                <p className="status">{op.status}</p>
-                <button
-                  onClick={() => {
-                    updateOrderFinish(op);
-                    refreshPage();
-                  }}
-                >
-                  Terminar preparación
-                </button>
-              </div>
+              <CardDone
+                product={products}
+                orderFinish={updateOrderFinish}
+                //reloadPage={refreshPage}
+              />
             </div>
           ))}
         </section>

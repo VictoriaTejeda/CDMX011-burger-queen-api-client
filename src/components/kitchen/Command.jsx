@@ -14,21 +14,18 @@ export const Command = (props) => {
 
   const updateOrder = (data) => {
     let endpoint = `${url}/${data.id}`;
-    console.log(endpoint);
+    
 
     let options = {
       body: { status: "listo" },
       headers: { "content-type": "application/json" },
     };
-    console.log(options);
+    
 
     api.patch(endpoint, options).then((res) => {
-      console.log(res);
-      console.log(options);
+      
       if (!res.err) {
-        console.log("entre al if");
         let newData = db.map((el) => (el.id === data.id ? data : el));
-        console.log("🚀:O ", newData);
         setDb(newData);
       } else {
         console.log(res);

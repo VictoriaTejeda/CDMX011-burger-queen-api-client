@@ -33,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="waiter" element={<PrivateRoute> <WaiterPage  /></PrivateRoute>} />
-        <Route path="waiter/order" element={ <OrderDone isLoggedIn={isLoggedIn} />} /> 
+        <Route path="waiter/order" element={ <OrderDone />} /> 
         <Route path="kitchen" element={ <KitchenPage  />} />
         <Route path="*" element={< ErrorPage/>} />
 
