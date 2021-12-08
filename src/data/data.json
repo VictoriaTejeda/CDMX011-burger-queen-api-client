@@ -235,7 +235,7 @@
     {
       "waiter": "rob_mesero@burgerqueen.com",
       "clientName": "Fany",
-      "status": "listo",
+      "status": "entregado",
       "orderProducts": [
         {
           "id": 1,
@@ -419,6 +419,40 @@
       "date": "7/12/2021 12:28:36",
       "total": 22,
       "id": 11
+    },
+    {
+      "waiter": "rob_mesero@burgerqueen.com",
+      "clientName": "Javier",
+      "status": "entregado",
+      "orderProducts": [
+        {
+          "id": 5,
+          "name": "Hamburguesa simple",
+          "price": 10,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Papas fritas",
+          "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/papas.png",
+          "type": "comida",
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "name": "Agua 500ml",
+          "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/agua.png",
+          "type": "comida",
+          "quantity": 1
+        }
+      ],
+      "date": "7/12/2021 20:31:50",
+      "total": 20,
+      "id": 12
     }
   ]
 }
