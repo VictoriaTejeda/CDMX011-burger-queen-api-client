@@ -1,18 +1,22 @@
 /* eslint-disable no-undef */
 import React from "react";
 import '@testing-library/jest-dom/extend-expect'
-import { render, fireEvent  } from "@testing-library/react";
+import { render, fireEvent, cleanup, waitFor  } from "@testing-library/react";
 import { Items } from "../components/waiter/Items";
 import { Products } from "../components/waiter/Products";
 import { Data } from "./DataMock"
 
+
+afterEach(cleanup);
+
 test('renders content', () => {
-  console.log(Data)
+ 
   const mockProducts=Data.products;
   const mockGetProduct= jest.fn()
-  
+  jest.mock();
   const component = render(<Products product={mockProducts} getProducts={mockGetProduct} />)
 
+  
   //component.debug()
   component.findByText("Café americano")
   component.findByText("$ 5")
@@ -24,7 +28,7 @@ test('renders content', () => {
   component.findByText("$ 15")
 })
 
-test('clicking the button Agregar',() => {
+test('clicking the button Agregar', async () => {
   
   const doomyData={
     id:"1",
@@ -37,10 +41,11 @@ test('clicking the button Agregar',() => {
 
   const component = render(<Items product={doomyData} sendProducts={mockGetProduct}></Items>)
 
-    component.debug()
+  
+    //component.debug()
   const button=component.getByText('Agregar')
   fireEvent.click(button)
-  expect(mockGetProduct).toHaveBeenCalledTimes(1)
+  await waitFor(() =>expect(mockGetProduct).toHaveBeenCalledTimes(1))
   expect(mockGetProduct).toHaveBeenCalledWith(doomyData)
 })
 

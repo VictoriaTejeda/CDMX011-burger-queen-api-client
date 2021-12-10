@@ -92,38 +92,38 @@ export const Data ={
         id: 11
       },
       {
-        "waiter": "armando_cocina@burgerqueen.com",
-        "clientName": "Marco",
-        "status": "entregado",
-        "orderProducts": [
+        waiter: "armando_cocina@burgerqueen.com",
+        clientName: "Marco",
+        status: "entregado",
+        orderProducts: [
           {
-            "id": 5,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
-            "type": "comida",
-            "quantity": 1
+            id: 5,
+            name: "Hamburguesa simple",
+            price: 10,
+            image: "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sencilla.png",
+            type: "comida",
+            quantity: 1
           },
           {
-            "id": 8,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
-            "type": "comida",
-            "quantity": 1
+            id: 8,
+            name: "Aros de cebolla",
+            price: 5,
+            image: "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/aros.png",
+            type: "comida",
+            quantity: 1
           },
           {
-            "id": 11,
-            "name": "Bebida/gaseosa 500ml",
-            "price": 7,
-            "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
-            "type": "comida",
-            "quantity": 1
+            id: 11,
+            name: "Bebida/gaseosa 500ml",
+            price: 7,
+            image: "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/soda.png",
+            type: "comida",
+            quantity: 1
           }
         ],
-        "date": "7/12/2021 12:28:36",
-        "total": 22,
-        "id": 12
+        date: "7/12/2021 12:28:36",
+        total: 22,
+        id: 12
       }
     ]
   };

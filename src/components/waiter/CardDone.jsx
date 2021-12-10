@@ -8,7 +8,7 @@ export const CardDone = (props) => {
     <div>
       <section className="card-done">
         {product.map((op) => (
-          <div key={op.id}>
+          <div key={op.id} className="card-container">
             <div className="card-cocina">
               <p>{op.clientName}</p>
               <div>

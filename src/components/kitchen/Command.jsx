@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 export const Command = (props) => {
   let { products } = props;
-  console.log("🚀", products);
   const [db, setDb] = useState([]);
   //const [data, setData] = useState([]);
 
@@ -47,9 +46,7 @@ export const Command = (props) => {
       timer: 3000,
     });
   }
-  function refreshPage() {
-    window.location.reload();
-  }
+ 
 
   return (
     <>
@@ -81,7 +78,7 @@ export const Command = (props) => {
               <button
                 onClick={() => {
                   updateOrder(op);
-                  refreshPage();
+                  
                 }}
               >
                 Enviar a Mesa

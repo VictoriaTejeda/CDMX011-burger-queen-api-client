@@ -47,6 +47,7 @@ export const Menu = (props) => {
           } else {
             console.log(res);
           }
+          console.log(db)
         });
         Swal.fire("Envio realizado con éxito");
         removeOrder();

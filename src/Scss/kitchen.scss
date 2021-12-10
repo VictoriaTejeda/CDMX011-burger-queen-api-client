@@ -50,6 +50,7 @@ $breakpoint-lg: 1800px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: 1vmin;
+
   .waiterMail{
     
     @include media(md) {
@@ -62,6 +63,7 @@ $breakpoint-lg: 1800px;
     
   }
 
+  
   button {
     border: none;
     outline: 0;
