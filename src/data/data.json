@@ -497,6 +497,40 @@
       "date": "8/12/2021 17:03:13",
       "total": 10,
       "id": 14
+    },
+    {
+      "waiter": "luis_mesero@burgerqueen.com",
+      "clientName": "Caro",
+      "status": "listo",
+      "orderProducts": [
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/cafe.png",
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "name": "Sandwich de jamón y queso",
+          "price": 7,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/sandwich.png",
+          "type": "desayuno",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Café con leche",
+          "price": 10,
+          "image": "https://raw.githubusercontent.com/Fanita90/CDMX011-burger-queen-api-client/hu3/src/assets/menu-items/leche.png",
+          "type": "desayuno",
+          "quantity": 1
+        }
+      ],
+      "date": "10/12/2021 11:18:12",
+      "total": 22,
+      "id": 15
     }
   ]
 }

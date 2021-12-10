@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { helpHttp } from "../../helpers/helpHttp";
 import Swal from "sweetalert2";
+import { CommandOrder } from "./CommandOrder";
 
 export const Command = (props) => {
   let { products } = props;
@@ -52,39 +53,8 @@ export const Command = (props) => {
     <>
       <section className="wrap-command">
         {products.map((op) => (
-          <div key={op.id}>
-            <div className="card-cocina">
-              <p>{op.clientName}</p>
-              <div>
-                {" "}
-                {op.orderProducts.map((p) => (
-                  <ul key={p.id}>
-                    <li>
-                      {p.quantity} {p.name}
-                    </li>
-                  </ul>
-                ))}
-              </div>
-              <p className="status">{op.status}</p>
-              <p>{op.date}</p>
-              <p className="waiterMail">{op.waiter}</p>
-              <button
-                onClick={() => {
-                  getMinutesBetweenDates(op);
-                }}
-              >
-                Terminar preparación
-              </button>
-              <button
-                onClick={() => {
-                  updateOrder(op);
-                  
-                }}
-              >
-                Enviar a Mesa
-              </button>
-            </div>
-          </div>
+            <CommandOrder key={op.id} product={op} updateOrder={updateOrder} date ={getMinutesBetweenDates}></CommandOrder>
+        
         ))}
       </section>
     </>
