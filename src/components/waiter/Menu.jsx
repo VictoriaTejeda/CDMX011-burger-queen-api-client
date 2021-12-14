@@ -118,7 +118,7 @@ export const Menu = (props) => {
     clientName: client,
     status: "pending",
     orderProducts,
-    date: date.toLocaleString(),
+    date: date,
     total: itemsPrice,
   };
 

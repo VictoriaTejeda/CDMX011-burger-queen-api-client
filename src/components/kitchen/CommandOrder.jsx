@@ -1,8 +1,29 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import Swal from "sweetalert2";
+
 
 export const CommandOrder = (props) => {
-  let { product, updateOrder, date } = props;
+  let { product, updateOrder } = props;
+
+  function getMinutesBetweenDates(data) {
+    const endDate = new Date();
+    console.log(endDate);
+    const startDate = new Date (data.date);
+    console.log(startDate)
+    const result = endDate - startDate;
+    console.log(result)
+    const minutes = Math.round(((result % 86400000) % 3600000) / 60000);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: `El tiempo de preparación fue:${minutes} minutos `,
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+ 
+  const date= new Date (product.date).toLocaleString();
 
 
   return (
@@ -19,11 +40,11 @@ export const CommandOrder = (props) => {
       ))}
     </div>
     <p className="status">{product.status}</p>
-    <p>{product.date}</p>
+    <p>{date}</p>
     <p className="waiterMail">{product.waiter}</p>
     <button
       onClick={() => {
-        date(product);
+        getMinutesBetweenDates(product);
       }}
     >
       Terminar preparación

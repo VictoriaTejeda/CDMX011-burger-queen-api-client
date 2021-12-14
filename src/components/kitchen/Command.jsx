@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { helpHttp } from "../../helpers/helpHttp";
-import Swal from "sweetalert2";
 import { CommandOrder } from "./CommandOrder";
 
 export const Command = (props) => {
@@ -34,26 +33,13 @@ export const Command = (props) => {
     });
   };
 
-  function getMinutesBetweenDates(data) {
-    const endDate = new Date();
-    const startDate = new Date(data.date);
-    const result = endDate - startDate;
-    const minutes = Math.round(((result % 86400000) % 3600000) / 60000);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: `El tiempo de preparación fue:${minutes} minutos `,
-      showConfirmButton: false,
-      timer: 3000,
-    });
-  }
  
 
   return (
     <>
       <section className="wrap-command">
         {products.map((op) => (
-            <CommandOrder key={op.id} product={op} updateOrder={updateOrder} date ={getMinutesBetweenDates}></CommandOrder>
+            <CommandOrder key={op.id} product={op} updateOrder={updateOrder}></CommandOrder>
         
         ))}
       </section>
