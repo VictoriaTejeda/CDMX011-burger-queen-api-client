@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap");
+.imgNotFound{
+    display: flex;
+    display:block;
+    width: 50vw;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+    font-family:"Nunito Sans", sans-serif;
+    color: #ffa427;
+    font-size: 4vh;
+    text-align:center;
+  }
+
+.linkHome{
+    font-family:"Nunito Sans", sans-serif;
+    color: #CCCF4A;
+    font-size: 4vh;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+.linkHome:hover{
+    color: #acaf16;
+  }
